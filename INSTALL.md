@@ -1,20 +1,24 @@
 # Install JustNatur theme on Shopify
 
+## Download
+
+Use the project root file **`JustNatur-website.zip`** (also available from this GitHub branch).
+
 ## Option A — Upload ZIP (fastest)
 
-1. Download `justnatur-theme.zip`
+1. Download `JustNatur-website.zip`
 2. In Shopify Admin go to **Online Store → Themes**
 3. Click **Add theme → Upload zip file**
-4. Select `justnatur-theme.zip` and upload
+4. Select `JustNatur-website.zip` and upload
 5. Click **Publish** when ready (or **Customize** first)
 
 ## Option B — Shopify CLI
 
 ```bash
-shopify theme push --path . --unpublished
+shopify theme push --unpublished
 ```
 
-Or connect the GitHub repo branch `cursor/mobile-tablet-responsive-a71c`.
+Or connect the GitHub repo branch that contains this theme.
 
 ## After install
 
