@@ -2,6 +2,12 @@
 
 Premium D2C Shopify Online Store 2.0 theme for **JustNatur** — a connected product experience sharing one design system across Homepage, Product, Shop, About, Contact, and Cart Drawer.
 
+## Download for Shopify
+
+**`JustNatur-website.zip`** in the project root — upload it in Shopify Admin → Online Store → Themes → Add theme → Upload zip file.
+
+See [INSTALL.md](./INSTALL.md) for full install steps.
+
 ## Design system
 
 **Typography**
