@@ -1,0 +1,96 @@
+<header class="jn-header" data-jn-header>
+  <div class="jn-header__inner">
+    <button
+      class="jn-icon-btn jn-header__menu-toggle"
+      type="button"
+      data-jn-nav-toggle
+      aria-expanded="false"
+      aria-controls="JnMobileNav"
+      aria-label="{{ 'general.accessibility.menu' | t }}"
+    >
+      {% render 'icon', name: 'menu' %}
+    </button>
+
+    <a class="jn-header__brand" href="{{ routes.root_url }}">
+      {%- if settings.logo != blank -%}
+        {{ settings.logo | image_url: width: 280 | image_tag: alt: settings.brand_name | default: shop.name, loading: 'eager' }}
+      {%- else -%}
+        {{ section.settings.brand_name | default: settings.brand_name | default: shop.name }}
+      {%- endif -%}
+    </a>
+
+    <nav class="jn-header__nav" aria-label="Primary">
+      {%- for link in section.settings.menu.links -%}
+        <a
+          href="{{ link.url }}"
+          {% if link.active %}aria-current="page"{% endif %}
+        >
+          {{ link.title }}
+        </a>
+      {%- else -%}
+        <a href="{{ routes.collections_url }}">{{ 'sections.header.shop' | t }}</a>
+        <a href="/pages/about">{{ 'sections.header.about' | t }}</a>
+        <a href="/pages/contact">{{ 'sections.header.contact' | t }}</a>
+      {%- endfor -%}
+    </nav>
+
+    <div class="jn-header__actions">
+      {%- if section.settings.show_search -%}
+        <a class="jn-icon-btn" href="{{ routes.search_url }}" aria-label="{{ 'general.accessibility.search' | t }}">
+          {% render 'icon', name: 'search' %}
+        </a>
+      {%- endif -%}
+      <button
+        class="jn-icon-btn jn-header__cart"
+        type="button"
+        data-jn-cart-open
+        aria-label="{{ 'general.accessibility.cart' | t }}"
+      >
+        {% render 'icon', name: 'cart' %}
+        <span class="jn-header__cart-count" data-jn-header-cart-count {% if cart.item_count == 0 %}hidden{% endif %}>
+          {{ cart.item_count }}
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="jn-mobile-nav" id="JnMobileNav" data-jn-nav-panel hidden>
+  <nav aria-label="Mobile">
+    {%- for link in section.settings.menu.links -%}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    {%- else -%}
+      <a href="{{ routes.collections_url }}">{{ 'sections.header.shop' | t }}</a>
+      <a href="/pages/about">{{ 'sections.header.about' | t }}</a>
+      <a href="/pages/contact">{{ 'sections.header.contact' | t }}</a>
+    {%- endfor -%}
+  </nav>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name override",
+      "default": "JustNatur",
+      "info": "Used when no logo image is set"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search icon",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

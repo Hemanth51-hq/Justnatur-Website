@@ -1,0 +1,108 @@
+<section class="jn-ingredient jn-section jn-surface-{{ section.settings.surface }}" id="Ingredient-{{ section.id }}">
+  <div class="jn-container">
+    <div class="jn-ingredient__panel">
+      <div class="jn-reveal">
+        {% render 'section-heading',
+          eyebrow: section.settings.eyebrow,
+          heading: section.settings.heading,
+          text: section.settings.text
+        %}
+        <div class="jn-ingredient__list">
+          {%- for block in section.blocks -%}
+            <div class="jn-ingredient__item" {{ block.shopify_attributes }}>
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      <div class="jn-ingredient__media jn-reveal">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1000
+            | image_tag: loading: 'lazy', widths: '400, 700, 1000', sizes: '(min-width: 768px) 40vw, 70vw', alt: section.settings.heading | escape
+          }}
+        {%- else -%}
+          <div class="jn-media__placeholder" style="position:absolute;inset:0;border-radius:50%">
+            <span>Circular illustration / ingredient image</span>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredient spotlight",
+  "tag": "section",
+  "class": "section-ingredient",
+  "settings": [
+    {
+      "type": "select",
+      "id": "surface",
+      "label": "Background",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "white", "label": "White" },
+        { "value": "mint", "label": "Mint" }
+      ],
+      "default": "cream"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Inside the formula"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Botanicals chosen with care"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Every ingredient earns its place — soothing, strengthening, and free from unnecessary fillers."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Illustration / image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Amla extract"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Supports shine and resilience from root to tip."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredient spotlight",
+      "blocks": [
+        { "type": "ingredient", "settings": { "title": "Amla extract", "text": "Supports shine and resilience from root to tip." } },
+        { "type": "ingredient", "settings": { "title": "Coconut oil", "text": "Lightweight moisture that softens without heaviness." } },
+        { "type": "ingredient", "settings": { "title": "Rosemary", "text": "A clarifying botanical for a fresher-feeling scalp." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

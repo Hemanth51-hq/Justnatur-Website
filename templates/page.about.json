@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "About",
+        "heading": "JustNatur",
+        "text": "Ritual care for hair that feels like you — placeholder brand story."
+      }
+    },
+    "story": {
+      "type": "rich-text",
+      "settings": {
+        "narrow": true,
+        "eyebrow": "Our story",
+        "heading": "Care that respects the pace of real life",
+        "body": "<p>JustNatur is a placeholder story about calm, botanical hair care. Replace this copy in the Theme Editor with your brand narrative, values, and origin.</p><p>We design fewer, better formulas — so everyday rituals feel considered, not complicated.</p>"
+      }
+    },
+    "editorial": {
+      "type": "editorial-split",
+      "settings": {
+        "surface": "mint",
+        "eyebrow": "What we believe",
+        "heading": "Nature, without the noise",
+        "text": "Placeholder values section using the shared editorial split component.",
+        "button_label": "Shop the collection",
+        "button_style": "primary"
+      }
+    },
+    "quote": {
+      "type": "quote-band",
+      "settings": {
+        "quote": "Beauty routines should feel like a return to yourself — not another task.",
+        "author": "JustNatur",
+        "role": "Brand note"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter-cta",
+      "settings": {
+        "surface": "cream",
+        "eyebrow": "Stay close",
+        "heading": "Ritual notes, quietly",
+        "text": "Occasional stories and early access — never clutter.",
+        "show_form": true,
+        "button_label": "Subscribe"
+      }
+    }
+  },
+  "order": ["hero", "story", "editorial", "quote", "newsletter"]
+}

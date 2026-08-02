@@ -1,0 +1,127 @@
+<section class="jn-cta jn-section jn-surface-{{ section.settings.surface }}" id="Cta-{{ section.id }}">
+  <div class="jn-container">
+    <div class="jn-cta__inner jn-reveal">
+      {% render 'section-heading',
+        eyebrow: section.settings.eyebrow,
+        heading: section.settings.heading,
+        text: section.settings.text
+      %}
+
+      {%- if section.settings.show_form -%}
+        {% form 'customer', class: 'jn-cta__form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <label class="jn-visually-hidden" for="NewsletterEmail-{{ section.id }}">Email</label>
+          <input
+            class="jn-cta__input"
+            id="NewsletterEmail-{{ section.id }}"
+            type="email"
+            name="contact[email]"
+            value="{{ form.email }}"
+            placeholder="{{ section.settings.placeholder }}"
+            required
+          >
+          <button class="jn-btn jn-btn--{{ section.settings.button_style }}" type="submit">
+            {{ section.settings.button_label }}
+          </button>
+        {% endform %}
+        {%- if section.settings.disclaimer != blank -%}
+          <p class="jn-cta__disclaimer">{{ section.settings.disclaimer }}</p>
+        {%- endif -%}
+      {%- elsif section.settings.button_label != blank -%}
+        <div class="jn-btn-group" style="justify-content:center;margin-top:var(--jn-space-8)">
+          {% render 'button',
+            label: section.settings.button_label,
+            href: section.settings.button_link | default: routes.collections_url,
+            style: section.settings.button_style
+          %}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter / CTA",
+  "tag": "section",
+  "class": "section-cta",
+  "settings": [
+    {
+      "type": "select",
+      "id": "surface",
+      "label": "Background",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "white", "label": "White" },
+        { "value": "mint", "label": "Mint" },
+        { "value": "green", "label": "Green" }
+      ],
+      "default": "mint"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Stay close"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Ritual notes, quietly"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Occasional stories, routines, and early access — never clutter."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_form",
+      "label": "Show email form",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email placeholder",
+      "default": "Your email"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link (when form is off)"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "light", "label": "Light" }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "Placeholder consent note — update in Theme Editor."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter / CTA"
+    }
+  ]
+}
+{% endschema %}

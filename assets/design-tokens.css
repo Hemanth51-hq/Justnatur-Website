@@ -1,0 +1,248 @@
+/**
+ * JustNatur Design System
+ * Full approved palette — cream base, forest green, burnt orange,
+ * warm near-black text, muted sage, soft borders, gradient washes.
+ */
+
+:root {
+  /* —— Core palette —— */
+  --color-bg: #fafaf7;
+  --color-surface: #ffffff;
+  --color-text: #1a1c19;
+  --color-muted: #5c6358;
+  --color-accent: #1f6b4f;
+  --color-accent-soft: #e7f2ec;
+  --color-highlight: #c45c26;
+  --color-border: #d9ded6;
+
+  /* Supporting / component tokens */
+  --color-mint-bright: #9fd6b8;
+  --color-star: #d4a017;
+  --color-error: #a12828;
+  --color-warning-muted: #a35a5a;
+  --color-hero-deep: #1c3a2d;
+  --color-hero-dark: #0f1c16;
+  --color-hero-warm: #2a1a12;
+  --color-overlay-ink: #15241d;
+  --color-wash-top: #f7f8f4;
+  --color-sage-a: #eef4ef;
+  --color-sage-b: #f7f3ec;
+  --color-sage-c: #dfece4;
+  --color-sage-d: #efe8dc;
+  --color-sage-e: #e8efe9;
+  --color-sage-f: #f3eee6;
+  --color-sage-g: #f3efe8;
+
+  /* Legacy jn-* aliases (used across theme CSS) */
+  --jn-green: var(--color-accent);
+  --jn-mint: var(--color-accent-soft);
+  --jn-terracotta: var(--color-highlight);
+  --jn-cream: var(--color-bg);
+  --jn-white: var(--color-surface);
+
+  --jn-color-primary: var(--color-accent);
+  --jn-color-primary-soft: var(--color-accent-soft);
+  --jn-color-accent: var(--color-highlight);
+  --jn-color-bg: var(--color-bg);
+  --jn-color-surface: var(--color-surface);
+  --jn-color-text: var(--color-text);
+  --jn-color-text-muted: var(--color-muted);
+  --jn-color-border: var(--color-border);
+  --jn-color-border-strong: color-mix(in srgb, var(--color-accent) 22%, var(--color-border));
+  --jn-color-overlay: rgba(15, 28, 22, 0.48);
+  --jn-color-focus: var(--color-accent);
+
+  /* Typography */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Plus Jakarta Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --jn-font-display: var(--font-display);
+  --jn-font-body: var(--font-body);
+
+  --jn-weight-regular: 400;
+  --jn-weight-medium: 500;
+  --jn-weight-semibold: 600;
+  --jn-weight-bold: 700;
+
+  /* Type scale */
+  --jn-text-xs: 0.75rem;
+  --jn-text-sm: 0.875rem;
+  --jn-text-base: 1rem;
+  --jn-text-md: 1.125rem;
+  --jn-text-lg: 1.25rem;
+  --jn-text-xl: 1.5rem;
+  --jn-text-2xl: 1.875rem;
+  --jn-text-3xl: 2.25rem;
+  --jn-text-4xl: 2.75rem;
+  --jn-text-5xl: 3.5rem;
+  --jn-text-hero: 2.75rem;
+
+  --jn-leading-tight: 1.15;
+  --jn-leading-snug: 1.3;
+  --jn-leading-normal: 1.55;
+  --jn-leading-relaxed: 1.7;
+
+  --jn-tracking-tight: -0.02em;
+  --jn-tracking-wide: 0.08em;
+
+  /* Spacing */
+  --jn-space-1: 0.25rem;
+  --jn-space-2: 0.5rem;
+  --jn-space-3: 0.75rem;
+  --jn-space-4: 1rem;
+  --jn-space-5: 1.25rem;
+  --jn-space-6: 1.5rem;
+  --jn-space-8: 2rem;
+  --jn-space-10: 2.5rem;
+  --jn-space-12: 3rem;
+  --jn-space-16: 4rem;
+  --jn-space-20: 5rem;
+  --jn-space-24: 6rem;
+  --jn-space-32: 8rem;
+
+  --jn-section-y: 4.5rem;
+  --jn-gutter: 1.25rem;
+  --jn-content-max: 72rem;
+  --jn-content-wide: 90rem;
+  --jn-content-narrow: 40rem;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --jn-radius-sm: var(--radius-sm);
+  --jn-radius-md: var(--radius-md);
+  --jn-radius-lg: var(--radius-lg);
+  --jn-radius-xl: 28px;
+
+  /* Shadows */
+  --shadow-soft: 0 18px 50px rgba(26, 28, 25, 0.08);
+  --shadow-button: 0 10px 28px rgba(31, 107, 79, 0.22);
+  --shadow-focus: 0 0 0 1px var(--color-accent);
+  --jn-shadow-sm: 0 1px 2px rgba(26, 28, 25, 0.06);
+  --jn-shadow-md: var(--shadow-soft);
+  --jn-shadow-drawer: -8px 0 40px rgba(26, 28, 25, 0.12);
+
+  /* Motion */
+  --jn-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --jn-duration-fast: 180ms;
+  --jn-duration: 320ms;
+  --jn-duration-slow: 560ms;
+
+  /* Z-index */
+  --jn-z-header: 40;
+  --jn-z-drawer: 50;
+  --jn-z-overlay: 45;
+  --jn-z-modal: 60;
+
+  --jn-header-height: 4rem;
+
+  /* Gradients */
+  --jn-gradient-body:
+    radial-gradient(1200px 600px at 10% -10%, rgba(31, 107, 79, 0.08), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(196, 92, 38, 0.06), transparent 50%),
+    linear-gradient(180deg, var(--color-wash-top) 0%, var(--color-bg) 28%, var(--color-bg) 100%);
+
+  --jn-gradient-hero-media:
+    linear-gradient(135deg, rgba(21, 36, 29, 0.25), rgba(21, 36, 29, 0.55)),
+    radial-gradient(circle at 70% 30%, rgba(31, 107, 79, 0.45), transparent 45%),
+    linear-gradient(160deg, var(--color-hero-deep) 0%, var(--color-hero-dark) 55%, var(--color-hero-warm) 100%);
+
+  --jn-gradient-hero-scrim:
+    linear-gradient(180deg, rgba(15, 28, 22, 0.25) 0%, rgba(15, 28, 22, 0.55) 45%, rgba(15, 28, 22, 0.88) 100%);
+
+  --jn-gradient-hero-scrim-desktop:
+    linear-gradient(
+      90deg,
+      rgba(15, 28, 22, 0.78) 0%,
+      rgba(15, 28, 22, 0.42) 42%,
+      rgba(15, 28, 22, 0.08) 70%,
+      transparent 100%
+    );
+
+  --jn-gradient-section-a: linear-gradient(160deg, var(--color-accent-soft), var(--color-sage-g));
+  --jn-gradient-section-b: linear-gradient(160deg, var(--color-sage-a), var(--color-sage-b));
+  --jn-gradient-section-c: linear-gradient(160deg, var(--color-sage-c), var(--color-sage-d));
+  --jn-gradient-section-d: linear-gradient(160deg, var(--color-sage-e), var(--color-sage-f));
+  --jn-gradient-badge: radial-gradient(circle at 30% 30%, var(--color-sage-c), var(--color-sage-d));
+  --jn-gradient-accent-glow: radial-gradient(700px 280px at 50% 0%, rgba(31, 107, 79, 0.18), transparent 60%);
+  --jn-gradient-media-placeholder: linear-gradient(145deg, var(--color-accent-soft) 0%, var(--color-sage-c) 100%);
+}
+
+/* —— Breakpoints (intentionally redesigned) —— */
+@media (max-width: 389px) {
+  :root {
+    --jn-text-hero: 2.25rem;
+    --jn-text-4xl: 2.125rem;
+    --jn-text-3xl: 1.875rem;
+    --jn-text-2xl: 1.5rem;
+    --jn-section-y: 3.5rem;
+    --jn-gutter: 1rem;
+    --jn-header-height: 3.75rem;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 767px) {
+  :root {
+    --jn-text-hero: 2.625rem;
+    --jn-text-4xl: 2.375rem;
+    --jn-section-y: 4rem;
+    --jn-gutter: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --jn-text-hero: 3.25rem;
+    --jn-text-4xl: 2.75rem;
+    --jn-text-3xl: 2.25rem;
+    --jn-section-y: 5rem;
+    --jn-gutter: 2rem;
+    --jn-header-height: 4.25rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  :root {
+    --jn-text-hero: 3.75rem;
+    --jn-text-4xl: 3rem;
+    --jn-section-y: 5.5rem;
+    --jn-gutter: 2.5rem;
+    --jn-header-height: 4.5rem;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+  :root {
+    --jn-text-hero: 4.25rem;
+    --jn-text-4xl: 3.25rem;
+    --jn-text-3xl: 2.5rem;
+    --jn-section-y: 6rem;
+    --jn-gutter: 3rem;
+    --jn-header-height: 4.75rem;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1679px) {
+  :root {
+    --jn-text-hero: 4.75rem;
+    --jn-text-4xl: 3.5rem;
+    --jn-text-3xl: 2.75rem;
+    --jn-section-y: 7rem;
+    --jn-gutter: 3.5rem;
+    --jn-header-height: 5rem;
+  }
+}
+
+@media (min-width: 1680px) {
+  :root {
+    --jn-text-hero: 5.25rem;
+    --jn-text-4xl: 3.75rem;
+    --jn-text-3xl: 3rem;
+    --jn-section-y: 8rem;
+    --jn-gutter: 4rem;
+    --jn-content-max: 78rem;
+    --jn-content-wide: 96rem;
+    --jn-header-height: 5.25rem;
+  }
+}

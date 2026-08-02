@@ -1,0 +1,550 @@
+/**
+ * JustNatur — Homepage & shared section layouts
+ * Each breakpoint is intentionally composed, not scaled down.
+ */
+
+/* —— Hero —— */
+.jn-hero {
+  position: relative;
+  min-height: calc(100svh - var(--jn-header-height));
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  background: var(--jn-gradient-hero-media);
+}
+
+.jn-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.jn-hero__media img,
+.jn-hero__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jn-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--jn-gradient-hero-scrim);
+  pointer-events: none;
+}
+
+.jn-hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--jn-content-wide);
+  margin-inline: auto;
+  padding: var(--jn-space-12) var(--jn-gutter) var(--jn-space-16);
+  color: var(--jn-color-surface);
+}
+
+.jn-hero__brand {
+  font-family: var(--jn-font-display);
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: var(--jn-weight-medium);
+  letter-spacing: var(--jn-tracking-tight);
+  line-height: 1;
+  margin: 0 0 var(--jn-space-5);
+  color: var(--jn-color-surface);
+}
+
+.jn-hero__headline {
+  font-family: var(--jn-font-display);
+  font-size: clamp(1.35rem, 3.2vw, 2rem);
+  font-weight: var(--jn-weight-regular);
+  line-height: var(--jn-leading-snug);
+  max-width: 22rem;
+  margin: 0 0 var(--jn-space-4);
+  color: color-mix(in srgb, var(--jn-white) 92%, transparent);
+}
+
+.jn-hero__text {
+  font-size: var(--jn-text-md);
+  line-height: var(--jn-leading-relaxed);
+  max-width: 28rem;
+  margin: 0 0 var(--jn-space-8);
+  color: color-mix(in srgb, var(--jn-white) 80%, transparent);
+}
+
+/* Small mobile: stacked editorial, brand dominates */
+@media (max-width: 389px) {
+  .jn-hero {
+    min-height: 88svh;
+  }
+
+  .jn-hero__content {
+    padding-bottom: var(--jn-space-12);
+  }
+
+  .jn-hero__brand {
+    font-size: 2.75rem;
+  }
+
+  .jn-btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Tablet portrait: content sits lower-left with breathing room */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .jn-hero__content {
+    padding-bottom: var(--jn-space-20);
+    max-width: 70%;
+  }
+
+  .jn-hero__headline {
+    max-width: 28rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .jn-hero {
+    align-items: center;
+  }
+
+  .jn-hero__scrim {
+    background: var(--jn-gradient-hero-scrim-desktop);
+  }
+
+  .jn-hero__content {
+    padding-block: var(--jn-space-24);
+  }
+
+  .jn-hero__headline {
+    max-width: 32rem;
+  }
+}
+
+/* —— Editorial split —— */
+.jn-editorial__copy {
+  max-width: 32rem;
+}
+
+.jn-editorial__copy .jn-lede {
+  margin-bottom: var(--jn-space-8);
+}
+
+@media (max-width: 767px) {
+  .jn-editorial .jn-split {
+    gap: var(--jn-space-8);
+  }
+
+  .jn-editorial .jn-media {
+    aspect-ratio: 5 / 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .jn-editorial .jn-split {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+}
+
+@media (min-width: 1440px) {
+  .jn-editorial .jn-split {
+    grid-template-columns: 1fr 1.1fr;
+  }
+}
+
+/* —— Featured products —— */
+.jn-featured__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jn-space-4);
+  margin-bottom: var(--jn-space-10);
+  max-width: 36rem;
+}
+
+@media (min-width: 768px) {
+  .jn-featured__head {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: none;
+  }
+
+  .jn-featured__head .jn-lede {
+    text-align: right;
+    margin-left: auto;
+  }
+}
+
+.jn-featured__grid {
+  display: grid;
+  gap: var(--jn-space-8);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 390px) and (max-width: 767px) {
+  .jn-featured__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--jn-space-5);
+  }
+}
+
+@media (min-width: 768px) {
+  .jn-featured__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--jn-space-8);
+  }
+}
+
+@media (min-width: 1200px) {
+  .jn-featured__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--jn-space-8);
+  }
+}
+
+@media (min-width: 1680px) {
+  .jn-featured__grid {
+    gap: var(--jn-space-10);
+  }
+}
+
+/* —— Routine / timeline section —— */
+.jn-routine__intro {
+  max-width: 36rem;
+  margin-bottom: var(--jn-space-12);
+}
+
+@media (min-width: 1024px) {
+  .jn-routine__layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: var(--jn-space-16);
+    align-items: start;
+  }
+
+  .jn-routine__intro {
+    margin-bottom: 0;
+    position: sticky;
+    top: calc(var(--jn-header-height) + var(--jn-space-8));
+  }
+}
+
+/* —— Ingredient spotlight —— */
+.jn-ingredient {
+  overflow: hidden;
+}
+
+.jn-ingredient__panel {
+  display: grid;
+  gap: var(--jn-space-10);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .jn-ingredient__panel {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--jn-space-12);
+  }
+}
+
+@media (min-width: 1200px) {
+  .jn-ingredient__panel {
+    gap: var(--jn-space-20);
+  }
+}
+
+.jn-ingredient__list {
+  display: grid;
+  gap: var(--jn-space-6);
+  margin-top: var(--jn-space-8);
+}
+
+.jn-ingredient__item h3 {
+  font-size: var(--jn-text-lg);
+  margin-bottom: var(--jn-space-2);
+}
+
+.jn-ingredient__item p {
+  color: var(--jn-color-text-muted);
+  margin: 0;
+  font-size: var(--jn-text-sm);
+}
+
+.jn-ingredient__media {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  max-width: 28rem;
+  margin-inline: auto;
+  overflow: hidden;
+  background: var(--jn-gradient-badge);
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 767px) {
+  .jn-ingredient__media {
+    max-width: 16rem;
+    order: -1;
+  }
+
+  .jn-ingredient__panel {
+    text-align: center;
+  }
+
+  .jn-ingredient__list {
+    text-align: left;
+  }
+}
+
+/* —— Quote band —— */
+.jn-quote-band {
+  background:
+    var(--jn-gradient-accent-glow),
+    linear-gradient(160deg, var(--color-hero-deep) 0%, var(--color-accent) 55%, var(--color-hero-warm) 100%);
+  color: var(--jn-color-surface);
+}
+
+.jn-quote-band .jn-quote__text {
+  color: var(--jn-color-surface);
+}
+
+.jn-quote-band .jn-quote__author {
+  color: var(--jn-color-surface);
+}
+
+.jn-quote-band .jn-quote__role {
+  color: var(--color-mint-bright);
+}
+
+/* —— Reviews —— */
+.jn-reviews__head {
+  margin-bottom: var(--jn-space-10);
+  max-width: 32rem;
+}
+
+/* —— Video moment —— */
+.jn-video {
+  position: relative;
+}
+
+.jn-video__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--jn-radius-xl);
+  background: var(--jn-color-primary);
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 767px) {
+  .jn-video__frame {
+    border-radius: var(--jn-radius-lg);
+    aspect-ratio: 4 / 5;
+  }
+}
+
+.jn-video__frame img,
+.jn-video__frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jn-video__caption {
+  margin-top: var(--jn-space-6);
+  max-width: 36rem;
+}
+
+.jn-video__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--jn-green) 25%, transparent);
+  border: 0;
+  cursor: pointer;
+  color: var(--jn-color-surface);
+}
+
+.jn-video__play-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background: var(--jn-color-surface);
+  color: var(--jn-color-primary);
+  display: grid;
+  place-items: center;
+  transition: transform var(--jn-duration) var(--jn-ease);
+}
+
+.jn-video__play:hover .jn-video__play-icon {
+  transform: scale(1.06);
+}
+
+.jn-video__play-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 0.15rem;
+}
+
+/* —— Newsletter / CTA —— */
+.jn-cta {
+  text-align: center;
+}
+
+.jn-cta__inner {
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.jn-cta__form {
+  display: grid;
+  gap: var(--jn-space-3);
+  margin-top: var(--jn-space-8);
+}
+
+@media (min-width: 768px) {
+  .jn-cta__form {
+    grid-template-columns: 1fr auto;
+    gap: var(--jn-space-3);
+  }
+}
+
+.jn-cta__input {
+  min-height: 3rem;
+  padding: 0.85rem 1.15rem;
+  border: 1.5px solid var(--jn-color-border-strong);
+  border-radius: var(--jn-radius-sm);
+  background: var(--jn-color-surface);
+}
+
+.jn-cta__input:focus {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-color: var(--jn-color-primary);
+}
+
+.jn-cta__disclaimer {
+  margin-top: var(--jn-space-4);
+  font-size: var(--jn-text-xs);
+  color: var(--jn-color-text-muted);
+}
+
+/* —— Marquee / trust bar —— */
+.jn-marquee {
+  overflow: hidden;
+  border-block: 1px solid var(--jn-color-border);
+  background: var(--jn-color-surface);
+  padding-block: var(--jn-space-5);
+}
+
+.jn-marquee__track {
+  display: flex;
+  gap: var(--jn-space-12);
+  width: max-content;
+  animation: jn-marquee 32s linear infinite;
+}
+
+.jn-marquee__item {
+  font-family: var(--jn-font-display);
+  font-size: var(--jn-text-lg);
+  white-space: nowrap;
+  color: var(--jn-color-primary);
+}
+
+@keyframes jn-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jn-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+}
+
+/* —— Page hero (inner pages) —— */
+.jn-page-hero {
+  padding-block: calc(var(--jn-section-y) * 0.85);
+  background: var(--jn-gradient-section-c);
+  position: relative;
+}
+
+.jn-page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--jn-gradient-accent-glow);
+  pointer-events: none;
+}
+
+.jn-page-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+}
+
+.jn-page-hero h1 {
+  margin-bottom: var(--jn-space-4);
+}
+
+/* —— Shop grid —— */
+.jn-shop-grid {
+  display: grid;
+  gap: var(--jn-space-8);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 390px) {
+  .jn-shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--jn-space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .jn-shop-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--jn-space-8);
+  }
+}
+
+@media (min-width: 1440px) {
+  .jn-shop-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* —— Contact form —— */
+.jn-contact-form {
+  display: grid;
+  gap: var(--jn-space-5);
+  max-width: 36rem;
+}
+
+.jn-field label {
+  display: block;
+  font-size: var(--jn-text-sm);
+  font-weight: var(--jn-weight-medium);
+  margin-bottom: var(--jn-space-2);
+}
+
+.jn-field input,
+.jn-field textarea,
+.jn-field select {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--jn-color-border-strong);
+  border-radius: var(--jn-radius-sm);
+  background: var(--jn-color-surface);
+}
+
+.jn-field textarea {
+  min-height: 9rem;
+  resize: vertical;
+}

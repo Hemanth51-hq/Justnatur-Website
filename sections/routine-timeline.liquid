@@ -1,0 +1,143 @@
+<section class="jn-routine jn-section jn-surface-{{ section.settings.surface }}" id="Routine-{{ section.id }}">
+  <div class="jn-container">
+    <div class="jn-routine__layout">
+      <div class="jn-routine__intro jn-reveal">
+        {% render 'section-heading',
+          eyebrow: section.settings.eyebrow,
+          heading: section.settings.heading,
+          text: section.settings.text
+        %}
+        {%- if section.settings.button_label != blank -%}
+          {% render 'button',
+            label: section.settings.button_label,
+            href: section.settings.button_link | default: '#',
+            style: 'accent'
+          %}
+        {%- endif -%}
+      </div>
+
+      <ol class="jn-timeline jn-list-plain {% if section.settings.layout == 'horizontal' %}jn-timeline--horizontal{% endif %}">
+        {%- for block in section.blocks -%}
+          <li class="jn-timeline__item jn-reveal" {{ block.shopify_attributes }}>
+            <div class="jn-timeline__marker">
+              <span class="jn-timeline__dot">{{ forloop.index }}</span>
+              <span class="jn-timeline__line" aria-hidden="true"></span>
+            </div>
+            <div class="jn-timeline__content">
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ol>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hair routine timeline",
+  "tag": "section",
+  "class": "section-routine",
+  "settings": [
+    {
+      "type": "select",
+      "id": "surface",
+      "label": "Background",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "white", "label": "White" },
+        { "value": "mint", "label": "Mint" }
+      ],
+      "default": "mint"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Timeline layout (desktop)",
+      "options": [
+        { "value": "vertical", "label": "Vertical" },
+        { "value": "horizontal", "label": "Horizontal" }
+      ],
+      "default": "vertical"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The ritual"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A three-step hair routine"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Simple enough for weeknights. Considered enough for lasting softness."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Build my routine"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cleanse"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Massage a small amount through the scalp and rinse with lukewarm water."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hair routine timeline",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Cleanse",
+            "text": "Massage a small amount through the scalp and rinse with lukewarm water."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Nourish",
+            "text": "Work conditioner through lengths, leave for a minute, then rinse."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Protect",
+            "text": "Finish with a light mist or serum on damp hair before styling."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

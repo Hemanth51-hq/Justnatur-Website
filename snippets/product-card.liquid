@@ -1,0 +1,69 @@
+{% comment %}
+  Product card — reusable across Home, Shop, Collection, Cart upsells
+  @param {product} product
+  @param {string} [badge]
+  @param {boolean} [show_add]
+  @param {string} [placeholder_title]
+  @param {string} [placeholder_price]
+  @param {string} [placeholder_meta]
+{% endcomment %}
+{%- if product != blank -%}
+  <article class="jn-product-card">
+    <a class="jn-product-card__media" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+      {%- if product.featured_media -%}
+        {{
+          product.featured_media
+          | image_url: width: 900
+          | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 1200px) 25vw, 50vw', alt: product.featured_media.alt | default: product.title | escape
+        }}
+      {%- else -%}
+        <div class="jn-media__placeholder"><span>Product image</span></div>
+      {%- endif -%}
+      {%- if badge != blank -%}
+        <span class="jn-product-card__badge">{{ badge }}</span>
+      {%- endif -%}
+    </a>
+    <div class="jn-product-card__body">
+      <h3 class="jn-product-card__title">
+        <a href="{{ product.url }}">{{ product.title }}</a>
+      </h3>
+      {%- if product.metafields.descriptors.subtitle != blank -%}
+        <p class="jn-product-card__meta">{{ product.metafields.descriptors.subtitle }}</p>
+      {%- elsif placeholder_meta != blank -%}
+        <p class="jn-product-card__meta">{{ placeholder_meta }}</p>
+      {%- endif -%}
+      <p class="jn-product-card__price">
+        {% if product.price_varies %}
+          {%- assign price = product.price_min | money -%}
+          {{ 'products.product.from_price_html' | t: price: price }}
+        {% else %}
+          {{ product.price | money }}
+        {% endif %}
+      </p>
+      {%- if show_add -%}
+        <div class="jn-product-card__actions">
+          {% render 'button', label: 'Add to bag', href: product.url, style: 'secondary', class: 'jn-btn--sm' %}
+        </div>
+      {%- endif -%}
+    </div>
+  </article>
+{%- else -%}
+  <article class="jn-product-card">
+    <div class="jn-product-card__media">
+      <div class="jn-media__placeholder"><span>Select a product</span></div>
+      {%- if badge != blank -%}
+        <span class="jn-product-card__badge">{{ badge }}</span>
+      {%- endif -%}
+    </div>
+    <div class="jn-product-card__body">
+      <h3 class="jn-product-card__title">{{ placeholder_title | default: 'Product name' }}</h3>
+      <p class="jn-product-card__meta">{{ placeholder_meta | default: 'Short product description' }}</p>
+      <p class="jn-product-card__price">{{ placeholder_price | default: '₹1,499' }}</p>
+      {%- if show_add -%}
+        <div class="jn-product-card__actions">
+          {% render 'button', label: 'Add to bag', style: 'secondary', class: 'jn-btn--sm', attributes: 'data-jn-cart-open' %}
+        </div>
+      {%- endif -%}
+    </div>
+  </article>
+{%- endif -%}
