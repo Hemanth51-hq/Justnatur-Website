@@ -9,7 +9,7 @@
   right: 0;
   z-index: var(--jn-z-header);
   height: var(--jn-header-height);
-  background: color-mix(in srgb, var(--jn-cream) 92%, transparent);
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
   transition:
@@ -19,7 +19,7 @@
 }
 
 .jn-header.is-scrolled {
-  background: var(--jn-color-surface);
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
   border-bottom-color: var(--jn-color-border);
   box-shadow: var(--jn-shadow-sm);
 }
@@ -38,10 +38,10 @@
 .jn-header__brand {
   font-family: var(--jn-font-display);
   font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-  font-weight: var(--jn-weight-medium);
+  font-weight: var(--jn-weight-semibold);
   letter-spacing: var(--jn-tracking-tight);
   text-decoration: none;
-  color: var(--jn-color-primary);
+  color: var(--jn-color-text);
   line-height: 1;
 }
 
@@ -64,7 +64,7 @@
   font-size: var(--jn-text-sm);
   font-weight: var(--jn-weight-medium);
   text-decoration: none;
-  color: var(--jn-color-primary);
+  color: var(--jn-color-text);
   position: relative;
   padding: var(--jn-space-2) 0;
 }
@@ -174,7 +174,9 @@ body.jn-nav-open {
 
 /* Footer */
 .jn-footer {
-  background: var(--jn-color-primary);
+  background:
+    radial-gradient(700px 280px at 50% 0%, rgba(159, 214, 184, 0.12), transparent 60%),
+    linear-gradient(160deg, var(--color-hero-deep) 0%, var(--color-accent) 48%, var(--color-hero-dark) 100%);
   color: var(--jn-color-surface);
   padding-block: var(--jn-section-y) var(--jn-space-10);
 }
@@ -227,7 +229,7 @@ body.jn-nav-open {
   letter-spacing: var(--jn-tracking-wide);
   text-transform: uppercase;
   margin: 0 0 var(--jn-space-5);
-  color: var(--jn-color-primary-soft);
+  color: var(--color-mint-bright);
 }
 
 .jn-footer__links {

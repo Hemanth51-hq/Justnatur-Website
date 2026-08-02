@@ -45,8 +45,14 @@
         </div>
       {%- endif -%}
 
-      <div data-jn-cart-empty {% if cart.item_count > 0 %}hidden{% elsif cart.item_count == 0 and cart.items.size == 0 %}{% endif %}>
-        {%- comment -%} Show demo line items when cart is empty so Theme Editor preview feels complete {%- endcomment -%}
+      <div class="jn-cart-empty" data-jn-cart-empty hidden>
+        <h3 class="jn-cart-empty__title">{{ settings.cart_empty_title }}</h3>
+        <p class="jn-cart-empty__text">{{ settings.cart_empty_text }}</p>
+        {% render 'button',
+          label: settings.cart_empty_cta,
+          href: settings.cart_empty_link | default: routes.collections_url,
+          style: 'primary'
+        %}
       </div>
 
       <div data-jn-cart-lines>

@@ -5,15 +5,28 @@ Premium D2C Shopify Online Store 2.0 theme for **JustNatur** — a connected pro
 ## Design system
 
 **Typography**
-- Fraunces (display)
-- Plus Jakarta Sans (body / UI)
+- Fraunces (display) — weights 500 / 600 / 700
+- Plus Jakarta Sans (body / UI) — weights 400 / 500 / 600 / 700
 
-**Colors** (approved only)
-- `#1F6B4F` primary green
-- `#E7F2EC` soft mint
-- `#C45C26` terracotta accent
-- `#FAFAF7` cream background
-- `#FFFFFF` surface white
+**Colors**
+| Token | Hex | Role |
+|---|---|---|
+| `--color-bg` | `#FAFAF7` | Page background |
+| `--color-surface` | `#FFFFFF` | Cards / panels |
+| `--color-text` | `#1A1C19` | Primary text |
+| `--color-muted` | `#5C6358` | Secondary text |
+| `--color-accent` | `#1F6B4F` | Brand green |
+| `--color-accent-soft` | `#E7F2EC` | Soft mint |
+| `--color-highlight` | `#C45C26` | Burnt orange |
+| `--color-border` | `#D9DED6` | Borders |
+
+Supporting tones for overlays, stars, footer accents, and sage gradient washes are defined in `assets/design-tokens.css`.
+
+**Atmosphere**
+- Body: green + orange radial washes over cream
+- Hero: deep green / warm brown layered overlays
+- Sections: soft sage-to-cream diagonal gradients
+- Shadows: soft diffused elevation + green-tinted button glow
 
 ## Responsive breakpoints
 
@@ -35,21 +48,12 @@ Every section, block, button label, image, video, review, timeline step, and car
 
 ## Cart drawer
 
-Premium slide-out cart with:
-- Product list + quantity controls
-- Free-shipping progress bar
-- Hair routine recommendation
-- Dynamic upsells
-- Shipping information
-- Money-back guarantee
-- Sticky checkout button
+Premium slide-out cart with product list, quantity controls, free-shipping progress, hair routine recommendation, dynamic upsells, shipping info, money-back guarantee, and sticky checkout.
 
 ## Local development
-
-Upload this folder as a Shopify theme, or use the Shopify CLI:
 
 ```bash
 shopify theme dev
 ```
 
-Assign the **About** and **Contact** page templates (`page.about`, `page.contact`) to the corresponding store pages.
+Assign the **About** and **Contact** page templates (`page.about`, `page.contact`) to those store pages.

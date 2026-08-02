@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="{{ settings.color_primary | default: '#1F6B4F' }}">
+      <meta name="theme-color" content="{{ settings.color_accent | default: '#1F6B4F' }}">
     <link rel="canonical" href="{{ canonical_url }}">
 
     {%- if settings.favicon != blank -%}
@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
 
@@ -39,11 +39,14 @@
 
     <style>
       :root {
-        --jn-green: {{ settings.color_primary | default: '#1F6B4F' }};
-        --jn-mint: {{ settings.color_mint | default: '#E7F2EC' }};
-        --jn-terracotta: {{ settings.color_accent | default: '#C45C26' }};
-        --jn-cream: {{ settings.color_cream | default: '#FAFAF7' }};
-        --jn-white: {{ settings.color_white | default: '#FFFFFF' }};
+        --color-bg: {{ settings.color_bg | default: '#FAFAF7' }};
+        --color-surface: {{ settings.color_surface | default: '#FFFFFF' }};
+        --color-text: {{ settings.color_text | default: '#1A1C19' }};
+        --color-muted: {{ settings.color_muted | default: '#5C6358' }};
+        --color-accent: {{ settings.color_accent | default: '#1F6B4F' }};
+        --color-accent-soft: {{ settings.color_accent_soft | default: '#E7F2EC' }};
+        --color-highlight: {{ settings.color_highlight | default: '#C45C26' }};
+        --color-border: {{ settings.color_border | default: '#D9DED6' }};
       }
     </style>
 

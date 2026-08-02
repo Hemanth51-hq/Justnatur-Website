@@ -10,7 +10,7 @@
   display: grid;
   align-items: end;
   overflow: hidden;
-  background: var(--jn-color-primary-soft);
+  background: var(--jn-gradient-hero-media);
 }
 
 .jn-hero__media {
@@ -28,12 +28,7 @@
 .jn-hero__scrim {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--jn-green) 12%, transparent) 0%,
-      color-mix(in srgb, var(--jn-green) 55%, transparent) 100%
-    );
+  background: var(--jn-gradient-hero-scrim);
   pointer-events: none;
 }
 
@@ -107,20 +102,13 @@
   }
 }
 
-/* Laptop+: brand + copy as one calm composition */
 @media (min-width: 1200px) {
   .jn-hero {
     align-items: center;
   }
 
   .jn-hero__scrim {
-    background:
-      linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--jn-green) 62%, transparent) 0%,
-        color-mix(in srgb, var(--jn-green) 18%, transparent) 55%,
-        transparent 100%
-      );
+    background: var(--jn-gradient-hero-scrim-desktop);
   }
 
   .jn-hero__content {
@@ -287,7 +275,8 @@
   max-width: 28rem;
   margin-inline: auto;
   overflow: hidden;
-  background: var(--jn-color-primary-soft);
+  background: var(--jn-gradient-badge);
+  box-shadow: var(--shadow-soft);
 }
 
 @media (max-width: 767px) {
@@ -307,7 +296,9 @@
 
 /* —— Quote band —— */
 .jn-quote-band {
-  background: var(--jn-color-primary);
+  background:
+    var(--jn-gradient-accent-glow),
+    linear-gradient(160deg, var(--color-hero-deep) 0%, var(--color-accent) 55%, var(--color-hero-warm) 100%);
   color: var(--jn-color-surface);
 }
 
@@ -320,7 +311,7 @@
 }
 
 .jn-quote-band .jn-quote__role {
-  color: color-mix(in srgb, var(--jn-white) 70%, transparent);
+  color: var(--color-mint-bright);
 }
 
 /* —— Reviews —— */
@@ -425,8 +416,9 @@
 }
 
 .jn-cta__input:focus {
-  outline: 2px solid var(--jn-color-focus);
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-color: var(--jn-color-primary);
 }
 
 .jn-cta__disclaimer {
@@ -478,10 +470,21 @@
 /* —— Page hero (inner pages) —— */
 .jn-page-hero {
   padding-block: calc(var(--jn-section-y) * 0.85);
-  background: var(--jn-color-primary-soft);
+  background: var(--jn-gradient-section-c);
+  position: relative;
+}
+
+.jn-page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--jn-gradient-accent-glow);
+  pointer-events: none;
 }
 
 .jn-page-hero__inner {
+  position: relative;
+  z-index: 1;
   max-width: 40rem;
 }
 

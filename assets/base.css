@@ -18,7 +18,9 @@ body {
   font-weight: var(--jn-weight-regular);
   line-height: var(--jn-leading-normal);
   color: var(--jn-color-text);
-  background: var(--jn-color-bg);
+  background-color: var(--jn-color-bg);
+  background-image: var(--jn-gradient-body);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -51,7 +53,7 @@ a {
 }
 
 a:hover {
-  color: var(--jn-color-accent);
+  color: var(--jn-color-primary);
 }
 
 :focus-visible {
@@ -68,7 +70,7 @@ h4,
 .h3,
 .h4 {
   font-family: var(--jn-font-display);
-  font-weight: var(--jn-weight-medium);
+  font-weight: var(--jn-weight-semibold);
   line-height: var(--jn-leading-tight);
   letter-spacing: var(--jn-tracking-tight);
   margin: 0 0 var(--jn-space-4);
@@ -149,15 +151,33 @@ p:last-child {
 }
 
 .jn-surface-cream {
-  background: var(--jn-color-bg);
+  background: transparent;
 }
 
 .jn-surface-white {
-  background: var(--jn-color-surface);
+  background: color-mix(in srgb, var(--jn-color-surface) 86%, transparent);
 }
 
 .jn-surface-mint {
-  background: var(--jn-color-primary-soft);
+  background: var(--jn-gradient-section-a);
+  position: relative;
+}
+
+.jn-surface-mint::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--jn-gradient-accent-glow);
+  pointer-events: none;
+}
+
+.jn-surface-mint > * {
+  position: relative;
+  z-index: 1;
+}
+
+.jn-surface-sage {
+  background: var(--jn-gradient-section-b);
 }
 
 .jn-surface-green {
@@ -179,7 +199,7 @@ p:last-child {
 }
 
 .jn-surface-green .jn-eyebrow {
-  color: var(--jn-color-primary-soft);
+  color: var(--color-mint-bright);
 }
 
 .jn-surface-green .jn-lede {
@@ -218,7 +238,7 @@ p:last-child {
   position: relative;
   overflow: hidden;
   border-radius: var(--jn-radius-lg);
-  background: var(--jn-color-primary-soft);
+  background: var(--jn-gradient-badge);
   aspect-ratio: 4 / 5;
 }
 
@@ -252,12 +272,7 @@ p:last-child {
   text-align: center;
   font-size: var(--jn-text-sm);
   color: var(--jn-color-text-muted);
-  background:
-    linear-gradient(
-      145deg,
-      var(--jn-color-primary-soft) 0%,
-      color-mix(in srgb, var(--jn-mint) 70%, var(--jn-green)) 100%
-    );
+  background: var(--jn-gradient-media-placeholder);
 }
 
 .jn-visually-hidden {

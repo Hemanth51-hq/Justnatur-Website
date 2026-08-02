@@ -39,37 +39,55 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "JustNatur design system palette. These map to CSS variables used across the theme."
+        "content": "JustNatur design system palette — cream base, forest green, burnt orange, warm text."
       },
       {
         "type": "color",
-        "id": "color_primary",
-        "label": "Primary green",
+        "id": "color_bg",
+        "label": "Page background",
+        "default": "#FAFAF7"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Surface / cards",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Primary text",
+        "default": "#1A1C19"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Muted text",
+        "default": "#5C6358"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Brand green",
         "default": "#1F6B4F"
       },
       {
         "type": "color",
-        "id": "color_mint",
+        "id": "color_accent_soft",
         "label": "Soft mint",
         "default": "#E7F2EC"
       },
       {
         "type": "color",
-        "id": "color_accent",
-        "label": "Terracotta accent",
+        "id": "color_highlight",
+        "label": "Burnt orange highlight",
         "default": "#C45C26"
       },
       {
         "type": "color",
-        "id": "color_cream",
-        "label": "Cream background",
-        "default": "#FAFAF7"
-      },
-      {
-        "type": "color",
-        "id": "color_white",
-        "label": "Surface white",
-        "default": "#FFFFFF"
+        "id": "color_border",
+        "label": "Borders",
+        "default": "#D9DED6"
       }
     ]
   },
