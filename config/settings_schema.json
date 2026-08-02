@@ -1,0 +1,233 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "JustNatur",
+    "theme_version": "1.0.0",
+    "theme_author": "JustNatur",
+    "theme_documentation_url": "https://github.com/Hemanth51-hq/Justnatur-Website",
+    "theme_support_url": "https://github.com/Hemanth51-hq/Justnatur-Website"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      },
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand name",
+        "default": "JustNatur"
+      },
+      {
+        "type": "textarea",
+        "id": "brand_tagline",
+        "label": "Brand tagline",
+        "default": "Ritual care for hair that feels like you."
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "JustNatur design system palette. These map to CSS variables used across the theme."
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary green",
+        "default": "#1F6B4F"
+      },
+      {
+        "type": "color",
+        "id": "color_mint",
+        "label": "Soft mint",
+        "default": "#E7F2EC"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Terracotta accent",
+        "default": "#C45C26"
+      },
+      {
+        "type": "color",
+        "id": "color_cream",
+        "label": "Cream background",
+        "default": "#FAFAF7"
+      },
+      {
+        "type": "color",
+        "id": "color_white",
+        "label": "Surface white",
+        "default": "#FFFFFF"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Approved typefaces: Fraunces (display) and Plus Jakarta Sans (body)."
+      }
+    ]
+  },
+  {
+    "name": "Cart drawer",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_enabled",
+        "label": "Enable cart drawer",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_heading",
+        "label": "Drawer heading",
+        "default": "Your bag"
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold (in cents / paise)",
+        "default": 99900,
+        "info": "Example: 99900 = ₹999.00"
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_remaining_text",
+        "label": "Progress remaining text",
+        "default": "Add {{amount}} more for free shipping"
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_complete_text",
+        "label": "Progress complete text",
+        "default": "You’ve unlocked free shipping"
+      },
+      {
+        "type": "text",
+        "id": "cart_currency_symbol",
+        "label": "Currency symbol (demo formatting)",
+        "default": "₹"
+      },
+      {
+        "type": "text",
+        "id": "routine_eyebrow",
+        "label": "Hair routine eyebrow",
+        "default": "Hair routine"
+      },
+      {
+        "type": "text",
+        "id": "routine_title",
+        "label": "Hair routine title",
+        "default": "Complete your evening ritual"
+      },
+      {
+        "type": "textarea",
+        "id": "routine_text",
+        "label": "Hair routine text",
+        "default": "Based on what’s in your bag, pair with a lightweight leave-in for softer mornings."
+      },
+      {
+        "type": "url",
+        "id": "routine_link",
+        "label": "Hair routine link"
+      },
+      {
+        "type": "text",
+        "id": "routine_cta",
+        "label": "Hair routine CTA",
+        "default": "See the routine"
+      },
+      {
+        "type": "text",
+        "id": "upsell_heading",
+        "label": "Upsell heading",
+        "default": "Often paired with"
+      },
+      {
+        "type": "product",
+        "id": "upsell_product_1",
+        "label": "Upsell product 1"
+      },
+      {
+        "type": "product",
+        "id": "upsell_product_2",
+        "label": "Upsell product 2"
+      },
+      {
+        "type": "text",
+        "id": "shipping_info_text",
+        "label": "Shipping information",
+        "default": "Dispatched in 2–4 business days. Free shipping above threshold."
+      },
+      {
+        "type": "text",
+        "id": "guarantee_text",
+        "label": "Money-back guarantee",
+        "default": "30-day money-back guarantee on unopened products."
+      },
+      {
+        "type": "text",
+        "id": "checkout_button_label",
+        "label": "Checkout button label",
+        "default": "Checkout"
+      },
+      {
+        "type": "text",
+        "id": "cart_empty_title",
+        "label": "Empty cart title",
+        "default": "Your bag is empty"
+      },
+      {
+        "type": "textarea",
+        "id": "cart_empty_text",
+        "label": "Empty cart text",
+        "default": "Discover rituals crafted for calm, resilient hair."
+      },
+      {
+        "type": "text",
+        "id": "cart_empty_cta",
+        "label": "Empty cart CTA",
+        "default": "Shop the collection"
+      },
+      {
+        "type": "url",
+        "id": "cart_empty_link",
+        "label": "Empty cart link"
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "label": "YouTube URL"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest",
+        "label": "Pinterest URL"
+      }
+    ]
+  }
+]

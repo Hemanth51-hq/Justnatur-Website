@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "rich-text",
+      "settings": {
+        "narrow": true,
+        "eyebrow": "Page",
+        "heading": "Page title",
+        "body": "<p>Default page template using the shared JustNatur rich text section. Assign About or Contact templates for those experiences.</p>"
+      }
+    }
+  },
+  "order": ["main"]
+}

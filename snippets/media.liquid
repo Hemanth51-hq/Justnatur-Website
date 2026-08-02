@@ -1,0 +1,43 @@
+{% comment %}
+  Media with placeholder fallback — Theme Editor configurable image/video
+  @param {image} [image]
+  @param {string} [video]
+  @param {string} [alt]
+  @param {string} [class]
+  @param {string} [aspect] - hero | landscape | square | (default portrait)
+  @param {string} [placeholder_label]
+{% endcomment %}
+{%- liquid
+  assign media_class = 'jn-media'
+  if aspect == 'hero'
+    assign media_class = media_class | append: ' jn-media--hero'
+  elsif aspect == 'landscape'
+    assign media_class = media_class | append: ' jn-media--landscape'
+  elsif aspect == 'square'
+    assign media_class = media_class | append: ' jn-media--square'
+  endif
+  if class != blank
+    assign media_class = media_class | append: ' ' | append: class
+  endif
+-%}
+<div class="{{ media_class }}">
+  {%- if video != blank -%}
+    <video autoplay muted loop playsinline poster="{% if image != blank %}{{ image | image_url: width: 1600 }}{% endif %}">
+      <source src="{{ video }}" type="video/mp4">
+    </video>
+  {%- elsif image != blank -%}
+    {{
+      image
+      | image_url: width: 1800
+      | image_tag:
+        loading: 'lazy',
+        widths: '400, 600, 800, 1200, 1600, 1800',
+        sizes: sizes | default: '100vw',
+        alt: alt | default: image.alt | escape
+    }}
+  {%- else -%}
+    <div class="jn-media__placeholder">
+      <span>{{ placeholder_label | default: 'Add image in Theme Editor' }}</span>
+    </div>
+  {%- endif -%}
+</div>

@@ -1,0 +1,59 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-main",
+      "settings": {
+        "eyebrow": "JustNatur",
+        "placeholder_title": "Nourish Shampoo",
+        "placeholder_text": "A gentle cleanse for everyday softness — placeholder copy for Theme Editor.",
+        "placeholder_price": "₹1,499",
+        "show_guarantee": true
+      }
+    },
+    "editorial": {
+      "type": "editorial-split",
+      "settings": {
+        "surface": "white",
+        "reverse": true,
+        "eyebrow": "How to use",
+        "heading": "A calm wash-day ritual",
+        "text": "Placeholder product education — swap in imagery and copy through Theme Editor.",
+        "button_label": "Shop the routine",
+        "button_style": "secondary"
+      }
+    },
+    "routine": {
+      "type": "routine-timeline",
+      "settings": {
+        "surface": "mint",
+        "layout": "horizontal",
+        "eyebrow": "Pair it with",
+        "heading": "Complete the hair routine",
+        "text": "Suggested steps using the shared JustNatur component library.",
+        "button_label": ""
+      },
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Cleanse", "text": "Start with Nourish Shampoo." } },
+        "s2": { "type": "step", "settings": { "title": "Condition", "text": "Follow with Restore Conditioner." } },
+        "s3": { "type": "step", "settings": { "title": "Finish", "text": "Seal with Leave-in Mist." } }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+    "reviews": {
+      "type": "reviews-carousel",
+      "settings": {
+        "surface": "cream",
+        "eyebrow": "Reviews",
+        "heading": "From people like you",
+        "text": "Placeholder reviews for this product experience."
+      },
+      "blocks": {
+        "r1": { "type": "review", "settings": { "text": "Gentle enough for every wash day.", "author": "Customer" } },
+        "r2": { "type": "review", "settings": { "text": "Noticeably softer after two weeks.", "author": "Customer" } },
+        "r3": { "type": "review", "settings": { "text": "The scent is quiet and clean.", "author": "Customer" } }
+      },
+      "block_order": ["r1", "r2", "r3"]
+    }
+  },
+  "order": ["main", "editorial", "routine", "reviews"]
+}

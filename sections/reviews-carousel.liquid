@@ -1,0 +1,116 @@
+<section class="jn-reviews jn-section jn-surface-{{ section.settings.surface }}" id="Reviews-{{ section.id }}">
+  <div class="jn-container">
+    <div class="jn-reviews__head jn-reveal">
+      {% render 'section-heading',
+        eyebrow: section.settings.eyebrow,
+        heading: section.settings.heading,
+        text: section.settings.text
+      %}
+    </div>
+
+    <div class="jn-carousel" data-jn-carousel>
+      <div class="jn-carousel__track" data-jn-carousel-track>
+        {%- for block in section.blocks -%}
+          <div class="jn-carousel__slide" {{ block.shopify_attributes }}>
+            <article class="jn-review jn-reveal">
+              <div class="jn-review__stars" aria-label="{{ block.settings.rating }} out of 5">
+                {%- for i in (1..5) -%}
+                  {% render 'icon', name: 'star' %}
+                {%- endfor -%}
+              </div>
+              <p class="jn-review__text">{{ block.settings.text }}</p>
+              <p class="jn-review__author">{{ block.settings.author }}</p>
+            </article>
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="jn-carousel__nav">
+        <button class="jn-carousel__btn" type="button" data-jn-carousel-prev aria-label="{{ 'general.accessibility.previous' | t }}">
+          {% render 'icon', name: 'chevron-left' %}
+        </button>
+        <button class="jn-carousel__btn" type="button" data-jn-carousel-next aria-label="{{ 'general.accessibility.next' | t }}">
+          {% render 'icon', name: 'chevron-right' %}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reviews carousel",
+  "tag": "section",
+  "class": "section-reviews",
+  "settings": [
+    {
+      "type": "select",
+      "id": "surface",
+      "label": "Background",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "white", "label": "White" },
+        { "value": "mint", "label": "Mint" }
+      ],
+      "default": "cream"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Loved by many"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What people notice first"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Placeholder reviews — replace with real customer stories in Theme Editor."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Rating",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Review text",
+          "default": "Softness without the heavy scent. My wash day finally feels simple."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Priya M."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews carousel",
+      "blocks": [
+        { "type": "review", "settings": { "text": "Softness without the heavy scent. My wash day finally feels simple.", "author": "Priya M." } },
+        { "type": "review", "settings": { "text": "The routine is short enough that I actually stick with it.", "author": "Ananya R." } },
+        { "type": "review", "settings": { "text": "Packaging feels considered. The formula feels even more so.", "author": "Neha S." } },
+        { "type": "review", "settings": { "text": "Less frizz by week two — and I didn’t change anything else.", "author": "Meera K." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

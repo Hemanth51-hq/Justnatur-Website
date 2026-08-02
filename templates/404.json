@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "404",
+        "heading": "This page wandered off",
+        "text": "Let’s get you back to the JustNatur collection."
+      }
+    },
+    "cta": {
+      "type": "newsletter-cta",
+      "settings": {
+        "surface": "cream",
+        "eyebrow": "",
+        "heading": "Return home",
+        "text": "Explore rituals, ingredients, and the essentials.",
+        "show_form": false,
+        "button_label": "Go to homepage",
+        "button_style": "primary"
+      }
+    }
+  },
+  "order": ["hero", "cta"]
+}

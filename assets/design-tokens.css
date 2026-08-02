@@ -1,0 +1,198 @@
+/**
+ * JustNatur Design System
+ * Colors and typefaces are fixed — do not invent new ones.
+ * Secondary text / borders use opacity of approved colors only.
+ */
+
+:root {
+  /* Brand palette — approved only */
+  --jn-green: #1f6b4f;
+  --jn-mint: #e7f2ec;
+  --jn-terracotta: #c45c26;
+  --jn-cream: #fafaf7;
+  --jn-white: #ffffff;
+
+  /* Semantic aliases */
+  --jn-color-primary: var(--jn-green);
+  --jn-color-primary-soft: var(--jn-mint);
+  --jn-color-accent: var(--jn-terracotta);
+  --jn-color-bg: var(--jn-cream);
+  --jn-color-surface: var(--jn-white);
+  --jn-color-text: var(--jn-green);
+  --jn-color-text-muted: color-mix(in srgb, var(--jn-green) 62%, transparent);
+  --jn-color-border: color-mix(in srgb, var(--jn-green) 14%, transparent);
+  --jn-color-border-strong: color-mix(in srgb, var(--jn-green) 28%, transparent);
+  --jn-color-overlay: color-mix(in srgb, var(--jn-green) 48%, transparent);
+  --jn-color-focus: var(--jn-terracotta);
+
+  /* Typography */
+  --jn-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --jn-font-body: "Plus Jakarta Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --jn-weight-regular: 400;
+  --jn-weight-medium: 500;
+  --jn-weight-semibold: 600;
+  --jn-weight-bold: 700;
+
+  /* Fluid type scale — intentionally redesigned per breakpoint via media queries */
+  --jn-text-xs: 0.75rem;
+  --jn-text-sm: 0.875rem;
+  --jn-text-base: 1rem;
+  --jn-text-md: 1.125rem;
+  --jn-text-lg: 1.25rem;
+  --jn-text-xl: 1.5rem;
+  --jn-text-2xl: 1.875rem;
+  --jn-text-3xl: 2.25rem;
+  --jn-text-4xl: 2.75rem;
+  --jn-text-5xl: 3.5rem;
+  --jn-text-hero: 2.75rem;
+
+  --jn-leading-tight: 1.15;
+  --jn-leading-snug: 1.3;
+  --jn-leading-normal: 1.55;
+  --jn-leading-relaxed: 1.7;
+
+  --jn-tracking-tight: -0.02em;
+  --jn-tracking-wide: 0.08em;
+
+  /* Spacing — generous editorial rhythm */
+  --jn-space-1: 0.25rem;
+  --jn-space-2: 0.5rem;
+  --jn-space-3: 0.75rem;
+  --jn-space-4: 1rem;
+  --jn-space-5: 1.25rem;
+  --jn-space-6: 1.5rem;
+  --jn-space-8: 2rem;
+  --jn-space-10: 2.5rem;
+  --jn-space-12: 3rem;
+  --jn-space-16: 4rem;
+  --jn-space-20: 5rem;
+  --jn-space-24: 6rem;
+  --jn-space-32: 8rem;
+
+  --jn-section-y: 4.5rem;
+  --jn-gutter: 1.25rem;
+  --jn-content-max: 72rem;
+  --jn-content-wide: 90rem;
+  --jn-content-narrow: 40rem;
+
+  /* Radii — restrained, not pill-heavy */
+  --jn-radius-sm: 0.375rem;
+  --jn-radius-md: 0.75rem;
+  --jn-radius-lg: 1.25rem;
+  --jn-radius-xl: 1.75rem;
+
+  /* Motion */
+  --jn-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --jn-duration-fast: 180ms;
+  --jn-duration: 320ms;
+  --jn-duration-slow: 560ms;
+
+  /* Elevation — soft, brand-tinted only */
+  --jn-shadow-sm: 0 1px 2px color-mix(in srgb, var(--jn-green) 8%, transparent);
+  --jn-shadow-md: 0 12px 32px color-mix(in srgb, var(--jn-green) 10%, transparent);
+  --jn-shadow-drawer: -8px 0 40px color-mix(in srgb, var(--jn-green) 16%, transparent);
+
+  /* Z-index */
+  --jn-z-header: 40;
+  --jn-z-drawer: 50;
+  --jn-z-overlay: 45;
+  --jn-z-modal: 60;
+
+  /* Header */
+  --jn-header-height: 4rem;
+}
+
+/* —— Breakpoints (intentionally redesigned, not shrunk) ——
+ * Small mobile:   max-width 389px
+ * Large mobile:   390–767px
+ * Tablet portrait: 768–1023px
+ * Tablet landscape: 1024–1199px
+ * Laptop:         1200–1439px
+ * Desktop:        1440–1679px
+ * Large desktop:  1680px+
+ */
+
+/* Small mobile */
+@media (max-width: 389px) {
+  :root {
+    --jn-text-hero: 2.25rem;
+    --jn-text-4xl: 2.125rem;
+    --jn-text-3xl: 1.875rem;
+    --jn-text-2xl: 1.5rem;
+    --jn-section-y: 3.5rem;
+    --jn-gutter: 1rem;
+    --jn-header-height: 3.75rem;
+  }
+}
+
+/* Large mobile */
+@media (min-width: 390px) and (max-width: 767px) {
+  :root {
+    --jn-text-hero: 2.625rem;
+    --jn-text-4xl: 2.375rem;
+    --jn-section-y: 4rem;
+    --jn-gutter: 1.25rem;
+  }
+}
+
+/* Tablet portrait */
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --jn-text-hero: 3.25rem;
+    --jn-text-4xl: 2.75rem;
+    --jn-text-3xl: 2.25rem;
+    --jn-section-y: 5rem;
+    --jn-gutter: 2rem;
+    --jn-header-height: 4.25rem;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  :root {
+    --jn-text-hero: 3.75rem;
+    --jn-text-4xl: 3rem;
+    --jn-section-y: 5.5rem;
+    --jn-gutter: 2.5rem;
+    --jn-header-height: 4.5rem;
+  }
+}
+
+/* Laptop */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  :root {
+    --jn-text-hero: 4.25rem;
+    --jn-text-4xl: 3.25rem;
+    --jn-text-3xl: 2.5rem;
+    --jn-section-y: 6rem;
+    --jn-gutter: 3rem;
+    --jn-header-height: 4.75rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1440px) and (max-width: 1679px) {
+  :root {
+    --jn-text-hero: 4.75rem;
+    --jn-text-4xl: 3.5rem;
+    --jn-text-3xl: 2.75rem;
+    --jn-section-y: 7rem;
+    --jn-gutter: 3.5rem;
+    --jn-header-height: 5rem;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1680px) {
+  :root {
+    --jn-text-hero: 5.25rem;
+    --jn-text-4xl: 3.75rem;
+    --jn-text-3xl: 3rem;
+    --jn-section-y: 8rem;
+    --jn-gutter: 4rem;
+    --jn-content-max: 78rem;
+    --jn-content-wide: 96rem;
+    --jn-header-height: 5.25rem;
+  }
+}

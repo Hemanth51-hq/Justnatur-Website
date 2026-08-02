@@ -1,0 +1,46 @@
+<section class="jn-quote-band jn-section" id="Quote-{{ section.id }}">
+  <div class="jn-container jn-container--narrow">
+    <figure class="jn-quote jn-reveal">
+      <blockquote class="jn-quote__text">“{{ section.settings.quote }}”</blockquote>
+      <figcaption>
+        <span class="jn-quote__author">{{ section.settings.author }}</span>
+        {%- if section.settings.role != blank -%}
+          <span class="jn-quote__role">{{ section.settings.role }}</span>
+        {%- endif -%}
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Quote band",
+  "tag": "section",
+  "class": "section-quote",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Quote",
+      "default": "My hair feels quieter somehow — softer, stronger, and easier to live with."
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "Author",
+      "default": "A JustNatur customer"
+    },
+    {
+      "type": "text",
+      "id": "role",
+      "label": "Role / detail",
+      "default": "Placeholder testimonial"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quote band"
+    }
+  ]
+}
+{% endschema %}

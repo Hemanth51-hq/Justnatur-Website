@@ -1,0 +1,37 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Shop",
+        "heading": "The JustNatur collection",
+        "text": "Placeholder shop intro — every product card uses the shared JustNatur component library."
+      }
+    },
+    "grid": {
+      "type": "shop-grid",
+      "blocks": {
+        "p1": { "type": "product", "settings": { "placeholder_title": "Nourish Shampoo", "placeholder_meta": "Gentle cleanse", "placeholder_price": "₹1,499" } },
+        "p2": { "type": "product", "settings": { "placeholder_title": "Restore Conditioner", "placeholder_meta": "Soft finish", "placeholder_price": "₹1,499" } },
+        "p3": { "type": "product", "settings": { "placeholder_title": "Scalp Serum", "placeholder_meta": "Daily balance", "placeholder_price": "₹899" } },
+        "p4": { "type": "product", "settings": { "placeholder_title": "Leave-in Mist", "placeholder_meta": "Light moisture", "placeholder_price": "₹999" } },
+        "p5": { "type": "product", "settings": { "placeholder_title": "Hair Oil", "placeholder_meta": "Weekend ritual", "placeholder_price": "₹1,299" } },
+        "p6": { "type": "product", "settings": { "placeholder_title": "Ritual Set", "placeholder_meta": "Full routine", "placeholder_price": "₹3,499" } },
+        "p7": { "type": "product", "settings": { "placeholder_title": "Travel Duo", "placeholder_meta": "On the go", "placeholder_price": "₹1,199" } },
+        "p8": { "type": "product", "settings": { "placeholder_title": "Silk Scrunchie", "placeholder_meta": "Soft hold", "placeholder_price": "₹499" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"]
+    },
+    "trust": {
+      "type": "trust-strip",
+      "settings": { "surface": "white" },
+      "blocks": {
+        "t1": { "type": "item", "settings": { "icon": "leaf", "title": "Thoughtful ingredients", "text": "Botanical formulas without unnecessary noise." } },
+        "t2": { "type": "item", "settings": { "icon": "truck", "title": "Careful shipping", "text": "Dispatched in 2–4 business days across India." } },
+        "t3": { "type": "item", "settings": { "icon": "shield", "title": "Money-back calm", "text": "30-day guarantee on unopened products." } }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    }
+  },
+  "order": ["hero", "grid", "trust"]
+}

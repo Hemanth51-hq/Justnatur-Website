@@ -1,0 +1,103 @@
+<section class="jn-section jn-surface-cream" id="Shop-{{ section.id }}">
+  <div class="jn-container">
+    <div class="jn-shop-grid">
+      {%- if collection != blank and collection.products.size > 0 -%}
+        {%- paginate collection.products by section.settings.products_per_page -%}
+          {%- for product in collection.products -%}
+            <div class="jn-reveal">
+              {% render 'product-card', product: product, show_add: true %}
+            </div>
+          {%- endfor -%}
+        {%- endpaginate -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <div class="jn-reveal" {{ block.shopify_attributes }}>
+            {% render 'product-card',
+              product: block.settings.product,
+              show_add: true,
+              placeholder_title: block.settings.placeholder_title,
+              placeholder_meta: block.settings.placeholder_meta,
+              placeholder_price: block.settings.placeholder_price
+            %}
+          </div>
+        {%- else -%}
+          {%- for i in (1..8) -%}
+            <div class="jn-reveal">
+              {% render 'product-card',
+                show_add: true,
+                placeholder_title: 'Placeholder product',
+                placeholder_meta: 'Short description',
+                placeholder_price: '₹1,499'
+              %}
+            </div>
+          {%- endfor -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shop grid",
+  "tag": "section",
+  "class": "section-shop-grid",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 4,
+      "max": 24,
+      "step": 4,
+      "label": "Products per page",
+      "default": 12
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Placeholder product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "placeholder_title",
+          "label": "Placeholder title",
+          "default": "Product name"
+        },
+        {
+          "type": "text",
+          "id": "placeholder_meta",
+          "label": "Placeholder meta",
+          "default": "Short description"
+        },
+        {
+          "type": "text",
+          "id": "placeholder_price",
+          "label": "Placeholder price",
+          "default": "₹1,499"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop grid",
+      "blocks": [
+        { "type": "product", "settings": { "placeholder_title": "Nourish Shampoo" } },
+        { "type": "product", "settings": { "placeholder_title": "Restore Conditioner" } },
+        { "type": "product", "settings": { "placeholder_title": "Scalp Serum" } },
+        { "type": "product", "settings": { "placeholder_title": "Leave-in Mist" } },
+        { "type": "product", "settings": { "placeholder_title": "Hair Oil" } },
+        { "type": "product", "settings": { "placeholder_title": "Ritual Set" } },
+        { "type": "product", "settings": { "placeholder_title": "Travel Duo" } },
+        { "type": "product", "settings": { "placeholder_title": "Silk Scrunchie" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

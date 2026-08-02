@@ -1,0 +1,28 @@
+{
+  "current": {
+    "brand_name": "JustNatur",
+    "brand_tagline": "Ritual care for hair that feels like you.",
+    "color_primary": "#1F6B4F",
+    "color_mint": "#E7F2EC",
+    "color_accent": "#C45C26",
+    "color_cream": "#FAFAF7",
+    "color_white": "#FFFFFF",
+    "cart_drawer_enabled": true,
+    "cart_drawer_heading": "Your bag",
+    "free_shipping_threshold": 99900,
+    "free_shipping_remaining_text": "Add {{amount}} more for free shipping",
+    "free_shipping_complete_text": "You’ve unlocked free shipping",
+    "cart_currency_symbol": "₹",
+    "routine_eyebrow": "Hair routine",
+    "routine_title": "Complete your evening ritual",
+    "routine_text": "Based on what’s in your bag, pair with a lightweight leave-in for softer mornings.",
+    "routine_cta": "See the routine",
+    "upsell_heading": "Often paired with",
+    "shipping_info_text": "Dispatched in 2–4 business days. Free shipping above threshold.",
+    "guarantee_text": "30-day money-back guarantee on unopened products.",
+    "checkout_button_label": "Checkout",
+    "cart_empty_title": "Your bag is empty",
+    "cart_empty_text": "Discover rituals crafted for calm, resilient hair.",
+    "cart_empty_cta": "Shop the collection"
+  }
+}

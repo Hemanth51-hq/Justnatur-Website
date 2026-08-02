@@ -1,0 +1,271 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "brand_name": "JustNatur",
+        "headline": "Hair rituals rooted in nature",
+        "text": "Clean formulas, calm routines, and lasting softness — made for everyday care.",
+        "primary_label": "Shop the ritual",
+        "secondary_label": "Our story"
+      }
+    },
+    "marquee": {
+      "type": "marquee-strip",
+      "blocks": {
+        "m1": { "type": "item", "settings": { "text": "Clean botanicals" } },
+        "m2": { "type": "item", "settings": { "text": "Soft scalp care" } },
+        "m3": { "type": "item", "settings": { "text": "Everyday rituals" } },
+        "m4": { "type": "item", "settings": { "text": "Thoughtful formulas" } },
+        "m5": { "type": "item", "settings": { "text": "Made to last" } }
+      },
+      "block_order": ["m1", "m2", "m3", "m4", "m5"]
+    },
+    "editorial": {
+      "type": "editorial-split",
+      "settings": {
+        "surface": "cream",
+        "eyebrow": "Our philosophy",
+        "heading": "Fewer steps. Deeper care.",
+        "text": "JustNatur formulas are built around gentle botanicals and a slower ritual — so hair feels nourished without the noise.",
+        "button_label": "Read our story",
+        "button_style": "primary"
+      }
+    },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "surface": "white",
+        "eyebrow": "The collection",
+        "heading": "Start with the essentials",
+        "text": "Four considered formulas for clean, resilient hair — replace these with live products in Theme Editor.",
+        "show_add": true,
+        "cta_label": "Shop all"
+      },
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "placeholder_title": "Nourish Shampoo",
+            "placeholder_meta": "Gentle cleanse",
+            "placeholder_price": "₹1,499",
+            "badge": "Best seller"
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "placeholder_title": "Restore Conditioner",
+            "placeholder_meta": "Soft finish",
+            "placeholder_price": "₹1,499"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "placeholder_title": "Scalp Serum",
+            "placeholder_meta": "Daily balance",
+            "placeholder_price": "₹899"
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "placeholder_title": "Leave-in Mist",
+            "placeholder_meta": "Light moisture",
+            "placeholder_price": "₹999"
+          }
+        }
+      },
+      "block_order": ["p1", "p2", "p3", "p4"]
+    },
+    "routine": {
+      "type": "routine-timeline",
+      "settings": {
+        "surface": "mint",
+        "layout": "vertical",
+        "eyebrow": "The ritual",
+        "heading": "A three-step hair routine",
+        "text": "Simple enough for weeknights. Considered enough for lasting softness.",
+        "button_label": "Build my routine"
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Cleanse",
+            "text": "Massage a small amount through the scalp and rinse with lukewarm water."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Nourish",
+            "text": "Work conditioner through lengths, leave for a minute, then rinse."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Protect",
+            "text": "Finish with a light mist or serum on damp hair before styling."
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+    "ingredient": {
+      "type": "ingredient-spotlight",
+      "settings": {
+        "surface": "cream",
+        "eyebrow": "Inside the formula",
+        "heading": "Botanicals chosen with care",
+        "text": "Every ingredient earns its place — soothing, strengthening, and free from unnecessary fillers."
+      },
+      "blocks": {
+        "i1": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Amla extract",
+            "text": "Supports shine and resilience from root to tip."
+          }
+        },
+        "i2": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Coconut oil",
+            "text": "Lightweight moisture that softens without heaviness."
+          }
+        },
+        "i3": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Rosemary",
+            "text": "A clarifying botanical for a fresher-feeling scalp."
+          }
+        }
+      },
+      "block_order": ["i1", "i2", "i3"]
+    },
+    "quote": {
+      "type": "quote-band",
+      "settings": {
+        "quote": "My hair feels quieter somehow — softer, stronger, and easier to live with.",
+        "author": "A JustNatur customer",
+        "role": "Placeholder testimonial"
+      }
+    },
+    "video": {
+      "type": "video-moment",
+      "settings": {
+        "surface": "white",
+        "wide": true,
+        "eyebrow": "In motion",
+        "heading": "See the ritual",
+        "text": "A quiet look at how JustNatur fits into an ordinary morning."
+      }
+    },
+    "reviews": {
+      "type": "reviews-carousel",
+      "settings": {
+        "surface": "cream",
+        "eyebrow": "Loved by many",
+        "heading": "What people notice first",
+        "text": "Placeholder reviews — replace with real customer stories in Theme Editor."
+      },
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Softness without the heavy scent. My wash day finally feels simple.",
+            "author": "Priya M."
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "The routine is short enough that I actually stick with it.",
+            "author": "Ananya R."
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Packaging feels considered. The formula feels even more so.",
+            "author": "Neha S."
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Less frizz by week two — and I didn’t change anything else.",
+            "author": "Meera K."
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3", "r4"]
+    },
+    "trust": {
+      "type": "trust-strip",
+      "settings": {
+        "surface": "white"
+      },
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Thoughtful ingredients",
+            "text": "Botanical formulas without unnecessary noise."
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Careful shipping",
+            "text": "Dispatched in 2–4 business days across India."
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "title": "Money-back calm",
+            "text": "30-day guarantee on unopened products."
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    },
+    "newsletter": {
+      "type": "newsletter-cta",
+      "settings": {
+        "surface": "mint",
+        "eyebrow": "Stay close",
+        "heading": "Ritual notes, quietly",
+        "text": "Occasional stories, routines, and early access — never clutter.",
+        "show_form": true,
+        "button_label": "Subscribe",
+        "button_style": "primary"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "marquee",
+    "editorial",
+    "featured",
+    "routine",
+    "ingredient",
+    "quote",
+    "video",
+    "reviews",
+    "trust",
+    "newsletter"
+  ]
+}

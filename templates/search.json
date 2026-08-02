@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Search",
+        "heading": "Search",
+        "text": "Find products and pages across JustNatur."
+      }
+    },
+    "cta": {
+      "type": "newsletter-cta",
+      "settings": {
+        "surface": "cream",
+        "heading": "Browse the collection",
+        "text": "Or explore the full ritual lineup.",
+        "show_form": false,
+        "button_label": "Shop all",
+        "button_style": "primary"
+      }
+    }
+  },
+  "order": ["hero", "cta"]
+}

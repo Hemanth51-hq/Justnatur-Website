@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Contact",
+        "heading": "Say hello",
+        "text": "Placeholder contact page — all fields are editable in Theme Editor."
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "eyebrow": "Write to us",
+        "heading": "We’d love to hear from you",
+        "text": "Questions about routines, orders, or ingredients — send a note.",
+        "email": "hello@justnatur.example",
+        "phone": "+91 00000 00000",
+        "hours": "Mon–Fri, 10am–6pm IST"
+      }
+    }
+  },
+  "order": ["hero", "form"]
+}
