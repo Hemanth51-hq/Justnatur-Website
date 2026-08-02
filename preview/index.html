@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>JustNatur — Homepage Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/design-tokens.css">
+  <link rel="stylesheet" href="../assets/base.css">
+  <link rel="stylesheet" href="../assets/component-library.css">
+  <link rel="stylesheet" href="../assets/section-header-footer.css">
+  <link rel="stylesheet" href="../assets/section-home.css">
+  <link rel="stylesheet" href="../assets/cart-drawer.css">
+</head>
+<body>
+  <header class="jn-header is-scrolled" data-jn-header>
+    <div class="jn-header__inner">
+      <button class="jn-icon-btn jn-header__menu-toggle" type="button" data-jn-nav-toggle aria-expanded="false" aria-controls="JnMobileNav" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h12"/></svg>
+      </button>
+      <a class="jn-header__brand" href="#">JustNatur</a>
+      <nav class="jn-header__nav" aria-label="Primary">
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="jn-header__actions">
+        <button class="jn-icon-btn jn-header__cart" type="button" data-jn-cart-open aria-label="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h15l-1.4 8.2a2 2 0 0 1-2 1.8H9a2 2 0 0 1-2-1.7L5.2 3.5H2"/><circle cx="9.5" cy="20" r="1"/><circle cx="17.5" cy="20" r="1"/></svg>
+          <span class="jn-header__cart-count">1</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="jn-mobile-nav" id="JnMobileNav" data-jn-nav-panel hidden>
+    <nav aria-label="Mobile">
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+
+  <main id="MainContent">
+    <section class="jn-hero jn-section--flush">
+      <div class="jn-hero__media">
+        <div class="jn-media__placeholder" style="position:absolute;inset:0;background:linear-gradient(145deg,#E7F2EC,#1F6B4F)"></div>
+        <div class="jn-hero__scrim"></div>
+      </div>
+      <div class="jn-hero__content jn-reveal is-visible">
+        <p class="jn-hero__brand">JustNatur</p>
+        <h1 class="jn-hero__headline">Hair rituals rooted in nature</h1>
+        <p class="jn-hero__text">Clean formulas, calm routines, and lasting softness — made for everyday care.</p>
+        <div class="jn-btn-group">
+          <a class="jn-btn jn-btn--light" href="#">Shop the ritual</a>
+          <a class="jn-btn jn-btn--ghost-light" href="#">Our story</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="jn-marquee jn-section--flush">
+      <div class="jn-marquee__track">
+        <span class="jn-marquee__item">Clean botanicals</span>
+        <span class="jn-marquee__item">Soft scalp care</span>
+        <span class="jn-marquee__item">Everyday rituals</span>
+        <span class="jn-marquee__item">Thoughtful formulas</span>
+        <span class="jn-marquee__item">Made to last</span>
+        <span class="jn-marquee__item" aria-hidden="true">Clean botanicals</span>
+        <span class="jn-marquee__item" aria-hidden="true">Soft scalp care</span>
+        <span class="jn-marquee__item" aria-hidden="true">Everyday rituals</span>
+        <span class="jn-marquee__item" aria-hidden="true">Thoughtful formulas</span>
+        <span class="jn-marquee__item" aria-hidden="true">Made to last</span>
+      </div>
+    </section>
+
+    <section class="jn-editorial jn-section jn-surface-cream">
+      <div class="jn-container">
+        <div class="jn-split">
+          <div class="jn-editorial__copy jn-reveal is-visible">
+            <p class="jn-eyebrow">Our philosophy</p>
+            <h2>Fewer steps. Deeper care.</h2>
+            <p class="jn-lede">JustNatur formulas are built around gentle botanicals and a slower ritual — so hair feels nourished without the noise.</p>
+            <a class="jn-btn jn-btn--primary" href="#">Read our story</a>
+          </div>
+          <div class="jn-reveal is-visible">
+            <div class="jn-media"><div class="jn-media__placeholder"><span>Editorial image</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="jn-featured jn-section jn-surface-white">
+      <div class="jn-container">
+        <div class="jn-featured__head jn-reveal is-visible">
+          <div>
+            <p class="jn-eyebrow">The collection</p>
+            <h2>Start with the essentials</h2>
+          </div>
+          <p class="jn-lede">Four considered formulas for clean, resilient hair.</p>
+        </div>
+        <div class="jn-featured__grid">
+          <article class="jn-product-card"><div class="jn-product-card__media"><div class="jn-media__placeholder"><span>Product</span></div><span class="jn-product-card__badge">Best seller</span></div><div class="jn-product-card__body"><h3 class="jn-product-card__title">Nourish Shampoo</h3><p class="jn-product-card__meta">Gentle cleanse</p><p class="jn-product-card__price">₹1,499</p></div></article>
+          <article class="jn-product-card"><div class="jn-product-card__media"><div class="jn-media__placeholder"><span>Product</span></div></div><div class="jn-product-card__body"><h3 class="jn-product-card__title">Restore Conditioner</h3><p class="jn-product-card__meta">Soft finish</p><p class="jn-product-card__price">₹1,499</p></div></article>
+          <article class="jn-product-card"><div class="jn-product-card__media"><div class="jn-media__placeholder"><span>Product</span></div></div><div class="jn-product-card__body"><h3 class="jn-product-card__title">Scalp Serum</h3><p class="jn-product-card__meta">Daily balance</p><p class="jn-product-card__price">₹899</p></div></article>
+          <article class="jn-product-card"><div class="jn-product-card__media"><div class="jn-media__placeholder"><span>Product</span></div></div><div class="jn-product-card__body"><h3 class="jn-product-card__title">Leave-in Mist</h3><p class="jn-product-card__meta">Light moisture</p><p class="jn-product-card__price">₹999</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="jn-routine jn-section jn-surface-mint">
+      <div class="jn-container">
+        <div class="jn-routine__layout">
+          <div class="jn-routine__intro jn-reveal is-visible">
+            <p class="jn-eyebrow">The ritual</p>
+            <h2>A three-step hair routine</h2>
+            <p class="jn-lede">Simple enough for weeknights. Considered enough for lasting softness.</p>
+            <a class="jn-btn jn-btn--accent" href="#">Build my routine</a>
+          </div>
+          <ol class="jn-timeline jn-list-plain">
+            <li class="jn-timeline__item"><div class="jn-timeline__marker"><span class="jn-timeline__dot">1</span><span class="jn-timeline__line"></span></div><div class="jn-timeline__content"><h3>Cleanse</h3><p>Massage a small amount through the scalp and rinse with lukewarm water.</p></div></li>
+            <li class="jn-timeline__item"><div class="jn-timeline__marker"><span class="jn-timeline__dot">2</span><span class="jn-timeline__line"></span></div><div class="jn-timeline__content"><h3>Nourish</h3><p>Work conditioner through lengths, leave for a minute, then rinse.</p></div></li>
+            <li class="jn-timeline__item"><div class="jn-timeline__marker"><span class="jn-timeline__dot">3</span><span class="jn-timeline__line"></span></div><div class="jn-timeline__content"><h3>Protect</h3><p>Finish with a light mist or serum on damp hair before styling.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="jn-quote-band jn-section">
+      <div class="jn-container jn-container--narrow">
+        <figure class="jn-quote">
+          <blockquote class="jn-quote__text">“My hair feels quieter somehow — softer, stronger, and easier to live with.”</blockquote>
+          <figcaption><span class="jn-quote__author">A JustNatur customer</span><span class="jn-quote__role">Placeholder testimonial</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="jn-cta jn-section jn-surface-mint">
+      <div class="jn-container">
+        <div class="jn-cta__inner">
+          <p class="jn-eyebrow">Stay close</p>
+          <h2>Ritual notes, quietly</h2>
+          <p class="jn-lede" style="margin-inline:auto">Occasional stories, routines, and early access — never clutter.</p>
+          <form class="jn-cta__form" onsubmit="return false">
+            <input class="jn-cta__input" type="email" placeholder="Your email">
+            <button class="jn-btn jn-btn--primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="jn-section jn-surface-white">
+      <div class="jn-container">
+        <div class="jn-trust-strip">
+          <div class="jn-trust-item jn-reveal is-visible">
+            <div class="jn-trust-item__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3.5S6.5 10 6.5 14.2a5.5 5.5 0 0 0 11 0C17.5 10 12 3.5 12 3.5z"/></svg></div>
+            <h3 class="jn-trust-item__title">Gentle cleanse</h3>
+            <p class="jn-trust-item__text">Supports comfortable everyday wash days</p>
+          </div>
+          <div class="jn-trust-item jn-reveal is-visible">
+            <div class="jn-trust-item__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 8v4.5l3 1.5"/></svg></div>
+            <h3 class="jn-trust-item__title">Daily rhythm</h3>
+            <p class="jn-trust-item__text">A short ritual that fits busy mornings</p>
+          </div>
+          <div class="jn-trust-item jn-reveal is-visible">
+            <div class="jn-trust-item__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 19c8 0 14-6 14-14-8 0-14 6-14 14z"/><path d="M5 19c2-4 6-8 12-10"/></svg></div>
+            <h3 class="jn-trust-item__title">Scalp comfort</h3>
+            <p class="jn-trust-item__text">Botanicals chosen for a calmer feel</p>
+          </div>
+          <div class="jn-trust-item jn-reveal is-visible">
+            <div class="jn-trust-item__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l1.4 6.1L19.5 12l-6.1 2.9L12 21l-1.4-6.1L4.5 12l6.1-2.9L12 3z"/></svg></div>
+            <h3 class="jn-trust-item__title">Lasting softness</h3>
+            <p class="jn-trust-item__text">Helps hair return to its natural ease</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="jn-footer">
+    <div class="jn-container jn-container--wide">
+      <div class="jn-footer__grid">
+        <div>
+          <p class="jn-footer__brand">JustNatur</p>
+          <p class="jn-footer__tagline">Ritual care for hair that feels like you.</p>
+        </div>
+        <div><p class="jn-footer__heading">Explore</p><div class="jn-footer__links"><a href="#">Shop</a><a href="#">About</a><a href="#">Contact</a></div></div>
+        <div><p class="jn-footer__heading">Help</p><div class="jn-footer__links"><a href="#">Shipping</a><a href="#">Returns</a><a href="#">FAQ</a></div></div>
+        <div><p class="jn-footer__heading">Contact</p><div class="jn-footer__links"><a href="#">hello@justnatur.example</a></div></div>
+      </div>
+      <div class="jn-footer__bottom"><p>© 2026 JustNatur. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <jn-cart-drawer class="jn-cart-drawer" id="JnCartDrawer" aria-hidden="true" data-free-shipping-threshold="99900" data-cart-total="49900" data-currency="₹" data-progress-remaining="Add {{amount}} more for free shipping" data-progress-complete="You’ve unlocked free shipping">
+    <div class="jn-cart-drawer__overlay" data-jn-cart-overlay></div>
+    <aside class="jn-cart-drawer__panel" data-jn-cart-panel role="dialog" aria-modal="true" aria-labelledby="JnCartDrawerTitle">
+      <div class="jn-cart-drawer__header">
+        <h2 class="jn-cart-drawer__title" id="JnCartDrawerTitle">Your bag <span class="jn-cart-drawer__count">(1)</span></h2>
+        <button class="jn-icon-btn" type="button" data-jn-cart-close aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <div class="jn-cart-drawer__body">
+        <div class="jn-cart-drawer__progress">
+          <div class="jn-progress">
+            <div class="jn-progress__label"><span data-jn-progress-label>Add ₹500.00 more for free shipping</span></div>
+            <div class="jn-progress__track"><div class="jn-progress__fill" data-jn-progress-fill style="width:50%"></div></div>
+          </div>
+        </div>
+        <div data-jn-cart-lines>
+          <article class="jn-cart-line" data-jn-cart-line>
+            <div class="jn-cart-line__media"><div class="jn-media__placeholder"><span>Image</span></div></div>
+            <div>
+              <div class="jn-cart-line__top">
+                <div><h3 class="jn-cart-line__title">Nourish Shampoo</h3><p class="jn-cart-line__variant">250 ml</p></div>
+                <p class="jn-cart-line__price">₹1,499</p>
+              </div>
+              <div class="jn-cart-line__bottom">
+                <div class="jn-qty">
+                  <button class="jn-qty__btn" type="button" data-jn-qty-change="-1">−</button>
+                  <input class="jn-qty__input" data-jn-qty-input type="number" value="1" readonly>
+                  <button class="jn-qty__btn" type="button" data-jn-qty-change="1">+</button>
+                </div>
+                <button class="jn-cart-line__remove" type="button" data-jn-line-remove>Remove</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="jn-cart-routine">
+          <p class="jn-cart-routine__eyebrow">Hair routine</p>
+          <h3 class="jn-cart-routine__title">Complete your evening ritual</h3>
+          <p class="jn-cart-routine__text">Based on what’s in your bag, pair with a lightweight leave-in for softer mornings.</p>
+          <a class="jn-btn jn-btn--secondary jn-btn--sm" href="#">See the routine</a>
+        </div>
+        <div class="jn-cart-upsells">
+          <h3 class="jn-cart-upsells__title">Often paired with</h3>
+          <div class="jn-cart-upsells__track">
+            <div class="jn-cart-upsell">
+              <div class="jn-cart-upsell__media"><div class="jn-media__placeholder"></div></div>
+              <div><p class="jn-cart-upsell__name">Scalp Serum</p><p class="jn-cart-upsell__price">₹899</p></div>
+              <button class="jn-btn jn-btn--secondary jn-btn--sm" type="button" data-jn-upsell-add>Add</button>
+            </div>
+            <div class="jn-cart-upsell">
+              <div class="jn-cart-upsell__media"><div class="jn-media__placeholder"></div></div>
+              <div><p class="jn-cart-upsell__name">Silk Scrunchie Set</p><p class="jn-cart-upsell__price">₹499</p></div>
+              <button class="jn-btn jn-btn--secondary jn-btn--sm" type="button" data-jn-upsell-add>Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="jn-cart-info">
+          <div class="jn-cart-info__row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7"/><circle cx="7" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg><span>Dispatched in 2–4 business days. Free shipping above threshold.</span></div>
+          <div class="jn-cart-info__row"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg><span>30-day money-back guarantee on unopened products.</span></div>
+        </div>
+      </div>
+      <div class="jn-cart-drawer__footer jn-cart-drawer__sticky-checkout">
+        <div class="jn-cart-drawer__subtotal"><span>Subtotal</span><strong data-jn-cart-subtotal>₹1,499.00</strong></div>
+        <p class="jn-cart-drawer__note">Taxes and shipping calculated at checkout</p>
+        <a class="jn-btn jn-btn--accent jn-btn--block" href="#">Checkout</a>
+        <div class="jn-cart-drawer__trust">
+          <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7"/><circle cx="7" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg>Hassle-free shipping</span>
+          <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Easy returns</span>
+        </div>
+      </div>
+    </aside>
+  </jn-cart-drawer>
+
+  <script src="../assets/global.js" defer></script>
+  <script src="../assets/cart-drawer.js" defer></script>
+</body>
+</html>

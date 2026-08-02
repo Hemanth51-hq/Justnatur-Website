@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Cart",
+        "heading": "Your bag",
+        "text": "Full cart page fallback — the premium experience lives in the slide-out cart drawer."
+      }
+    },
+    "cta": {
+      "type": "newsletter-cta",
+      "settings": {
+        "surface": "mint",
+        "eyebrow": "Continue",
+        "heading": "Keep building your ritual",
+        "text": "Return to the collection or open the cart drawer from the header.",
+        "show_form": false,
+        "button_label": "Shop the collection",
+        "button_style": "primary"
+      }
+    }
+  },
+  "order": ["hero", "cta"]
+}

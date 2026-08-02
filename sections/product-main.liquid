@@ -1,0 +1,124 @@
+<section class="jn-section jn-surface-cream" id="Product-{{ section.id }}">
+  <div class="jn-container">
+    <div class="jn-split">
+      <div class="jn-reveal">
+        {% render 'media',
+          image: product.featured_media,
+          alt: product.title,
+          placeholder_label: 'Product image',
+          sizes: '(min-width: 768px) 48vw, 100vw'
+        %}
+      </div>
+
+      <div class="jn-reveal">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="jn-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h1>{{ product.title | default: section.settings.placeholder_title }}</h1>
+        <p class="jn-lede">
+          {{ product.description | strip_html | truncate: 180 | default: section.settings.placeholder_text }}
+        </p>
+        <p class="jn-product-card__price" style="font-size:var(--jn-text-xl);margin:var(--jn-space-6) 0">
+          {%- if product != blank -%}
+            {{ product.price | money }}
+          {%- else -%}
+            {{ section.settings.placeholder_price }}
+          {%- endif -%}
+        </p>
+
+        {%- if product != blank -%}
+          {% form 'product', product %}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <div class="jn-btn-group">
+              <button class="jn-btn jn-btn--primary" type="submit" name="add" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+                {%- if product.selected_or_first_available_variant.available -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- else -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- endif -%}
+              </button>
+              <button class="jn-btn jn-btn--secondary" type="button" data-jn-cart-open>
+                View bag
+              </button>
+            </div>
+          {% endform %}
+        {%- else -%}
+          <div class="jn-btn-group">
+            {% render 'button', label: 'Add to bag', style: 'primary', attributes: 'data-jn-cart-open' %}
+            {% render 'button', label: 'View bag', style: 'secondary', attributes: 'data-jn-cart-open' %}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_guarantee -%}
+          <div class="jn-cart-info" style="margin-top:var(--jn-space-8)">
+            <div class="jn-cart-info__row">
+              {% render 'icon', name: 'shield' %}
+              <span>{{ section.settings.guarantee_text }}</span>
+            </div>
+            <div class="jn-cart-info__row">
+              {% render 'icon', name: 'truck' %}
+              <span>{{ section.settings.shipping_text }}</span>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product main",
+  "tag": "section",
+  "class": "section-product-main",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "JustNatur"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_title",
+      "label": "Placeholder title",
+      "default": "Nourish Shampoo"
+    },
+    {
+      "type": "textarea",
+      "id": "placeholder_text",
+      "label": "Placeholder description",
+      "default": "A gentle cleanse for everyday softness — placeholder copy for Theme Editor."
+    },
+    {
+      "type": "text",
+      "id": "placeholder_price",
+      "label": "Placeholder price",
+      "default": "₹1,499"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_guarantee",
+      "label": "Show trust rows",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "30-day money-back guarantee on unopened products."
+    },
+    {
+      "type": "text",
+      "id": "shipping_text",
+      "label": "Shipping text",
+      "default": "Dispatched in 2–4 business days."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product main"
+    }
+  ]
+}
+{% endschema %}

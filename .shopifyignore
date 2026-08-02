@@ -1,0 +1,6 @@
+preview/
+.DS_Store
+node_modules/
+*.log
+JustNatur-website.zip
+*.zip

@@ -1,0 +1,36 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "brand_name": "JustNatur",
+        "tagline": "Ritual care for hair that feels like you."
+      },
+      "blocks": {
+        "menu_explore": {
+          "type": "menu",
+          "settings": {
+            "heading": "Explore"
+          }
+        },
+        "menu_help": {
+          "type": "menu",
+          "settings": {
+            "heading": "Help"
+          }
+        },
+        "text_contact": {
+          "type": "text",
+          "settings": {
+            "heading": "Contact",
+            "text": "<p>hello@justnatur.example</p>"
+          }
+        }
+      },
+      "block_order": ["menu_explore", "menu_help", "text_contact"]
+    }
+  },
+  "order": ["footer"]
+}

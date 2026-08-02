@@ -1,0 +1,110 @@
+<section class="jn-section jn-surface-{{ section.settings.surface }}" id="Trust-{{ section.id }}">
+  <div class="jn-container">
+    <div class="jn-trust-strip">
+      {%- for block in section.blocks -%}
+        <div class="jn-trust-item jn-reveal" {{ block.shopify_attributes }}>
+          <div class="jn-trust-item__icon">
+            {% render 'icon', name: block.settings.icon %}
+          </div>
+          <h3 class="jn-trust-item__title">{{ block.settings.title }}</h3>
+          <p class="jn-trust-item__text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust strip",
+  "tag": "section",
+  "class": "section-trust",
+  "settings": [
+    {
+      "type": "select",
+      "id": "surface",
+      "label": "Background",
+      "options": [
+        { "value": "cream", "label": "Cream" },
+        { "value": "white", "label": "White" },
+        { "value": "mint", "label": "Mint" }
+      ],
+      "default": "white"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Trust item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "truck", "label": "Shipping" },
+            { "value": "shield", "label": "Guarantee" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "spark", "label": "Spark" },
+            { "value": "moon", "label": "Moon" }
+          ],
+          "default": "leaf"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Thoughtful ingredients"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Botanical formulas without unnecessary noise."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust strip",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "droplet",
+            "title": "Gentle cleanse",
+            "text": "Supports comfortable everyday wash days"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "clock",
+            "title": "Daily rhythm",
+            "text": "A short ritual that fits busy mornings"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Scalp comfort",
+            "text": "Botanicals chosen for a calmer feel"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "spark",
+            "title": "Lasting softness",
+            "text": "Helps hair return to its natural ease"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

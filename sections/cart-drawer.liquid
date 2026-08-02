@@ -1,0 +1,444 @@
+{%- if settings.cart_drawer_enabled -%}
+<jn-cart-drawer
+  class="jn-cart-drawer"
+  id="JnCartDrawer"
+  aria-hidden="true"
+  data-free-shipping-threshold="{{ settings.free_shipping_threshold | default: 99900 }}"
+  data-cart-total="{% if cart.total_price > 0 %}{{ cart.total_price }}{% else %}49900{% endif %}"
+  data-currency="{{ settings.cart_currency_symbol | default: '₹' }}"
+  data-progress-remaining="{{ settings.free_shipping_remaining_text | escape }}"
+  data-progress-complete="{{ settings.free_shipping_complete_text | escape }}"
+  data-added-label="Added"
+>
+  <div class="jn-cart-drawer__overlay" data-jn-cart-overlay></div>
+
+  <aside
+    class="jn-cart-drawer__panel"
+    data-jn-cart-panel
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="JnCartDrawerTitle"
+  >
+    <div class="jn-cart-drawer__header">
+      <h2 class="jn-cart-drawer__title" id="JnCartDrawerTitle">
+        {{ section.settings.heading | default: settings.cart_drawer_heading }}
+        <span class="jn-cart-drawer__count" data-jn-cart-count>
+          {%- if cart.item_count > 0 -%}({{ cart.item_count }}){%- else -%}(1){%- endif -%}
+        </span>
+      </h2>
+      <button class="jn-icon-btn" type="button" data-jn-cart-close aria-label="{{ 'general.accessibility.close' | t }}">
+        {% render 'icon', name: 'close' %}
+      </button>
+    </div>
+
+    <div class="jn-cart-drawer__body">
+      {%- if section.settings.show_progress -%}
+        <div class="jn-cart-drawer__progress">
+          <div class="jn-progress">
+            <div class="jn-progress__label">
+              <span data-jn-progress-label>{{ settings.free_shipping_remaining_text | replace: '{{amount}}', '₹500.00' }}</span>
+            </div>
+            <div class="jn-progress__track" aria-hidden="true">
+              <div class="jn-progress__fill" data-jn-progress-fill style="width: 50%"></div>
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="jn-cart-empty" data-jn-cart-empty hidden>
+        <h3 class="jn-cart-empty__title">{{ settings.cart_empty_title }}</h3>
+        <p class="jn-cart-empty__text">{{ settings.cart_empty_text }}</p>
+        {% render 'button',
+          label: settings.cart_empty_cta,
+          href: settings.cart_empty_link | default: routes.collections_url,
+          style: 'primary'
+        %}
+      </div>
+
+      <div data-jn-cart-lines>
+        {%- if cart.item_count > 0 -%}
+          {%- for item in cart.items -%}
+            <article class="jn-cart-line" data-jn-cart-line data-key="{{ item.key }}">
+              <div class="jn-cart-line__media">
+                {%- if item.image -%}
+                  {{ item.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: item.product.title | escape }}
+                {%- else -%}
+                  <div class="jn-media__placeholder"><span>Image</span></div>
+                {%- endif -%}
+              </div>
+              <div>
+                <div class="jn-cart-line__top">
+                  <div>
+                    <h3 class="jn-cart-line__title">{{ item.product.title }}</h3>
+                    {%- unless item.product.has_only_default_variant -%}
+                      <p class="jn-cart-line__variant">{{ item.variant.title }}</p>
+                    {%- endunless -%}
+                  </div>
+                  <p class="jn-cart-line__price">{{ item.final_line_price | money }}</p>
+                </div>
+                <div class="jn-cart-line__bottom">
+                  <div class="jn-qty">
+                    <button class="jn-qty__btn" type="button" data-jn-qty-change="-1" aria-label="{{ 'general.accessibility.decrease_quantity' | t }}">
+                      {% render 'icon', name: 'minus' %}
+                    </button>
+                    <input class="jn-qty__input" data-jn-qty-input type="number" min="0" value="{{ item.quantity }}" readonly>
+                    <button class="jn-qty__btn" type="button" data-jn-qty-change="1" aria-label="{{ 'general.accessibility.increase_quantity' | t }}">
+                      {% render 'icon', name: 'plus' %}
+                    </button>
+                  </div>
+                  <button class="jn-cart-line__remove" type="button" data-jn-line-remove>
+                    {{ 'general.accessibility.remove_item' | t }}
+                  </button>
+                </div>
+              </div>
+            </article>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'demo_line' -%}
+              <article class="jn-cart-line" data-jn-cart-line {{ block.shopify_attributes }}>
+                <div class="jn-cart-line__media">
+                  {%- if block.settings.image != blank -%}
+                    {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: block.settings.title | escape }}
+                  {%- else -%}
+                    <div class="jn-media__placeholder"><span>Image</span></div>
+                  {%- endif -%}
+                </div>
+                <div>
+                  <div class="jn-cart-line__top">
+                    <div>
+                      <h3 class="jn-cart-line__title">{{ block.settings.title }}</h3>
+                      <p class="jn-cart-line__variant">{{ block.settings.variant }}</p>
+                    </div>
+                    <p class="jn-cart-line__price">{{ block.settings.price }}</p>
+                  </div>
+                  <div class="jn-cart-line__bottom">
+                    <div class="jn-qty">
+                      <button class="jn-qty__btn" type="button" data-jn-qty-change="-1" aria-label="{{ 'general.accessibility.decrease_quantity' | t }}">
+                        {% render 'icon', name: 'minus' %}
+                      </button>
+                      <input class="jn-qty__input" data-jn-qty-input type="number" min="0" value="{{ block.settings.quantity }}" readonly>
+                      <button class="jn-qty__btn" type="button" data-jn-qty-change="1" aria-label="{{ 'general.accessibility.increase_quantity' | t }}">
+                        {% render 'icon', name: 'plus' %}
+                      </button>
+                    </div>
+                    <button class="jn-cart-line__remove" type="button" data-jn-line-remove>Remove</button>
+                  </div>
+                </div>
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_routine -%}
+        <div class="jn-cart-routine">
+          <p class="jn-cart-routine__eyebrow">{{ section.settings.routine_eyebrow | default: settings.routine_eyebrow }}</p>
+          <h3 class="jn-cart-routine__title">{{ section.settings.routine_title | default: settings.routine_title }}</h3>
+          <p class="jn-cart-routine__text">{{ section.settings.routine_text | default: settings.routine_text }}</p>
+          {% render 'button',
+            label: section.settings.routine_cta | default: settings.routine_cta,
+            href: section.settings.routine_link | default: settings.routine_link | default: routes.collections_url,
+            style: 'secondary',
+            class: 'jn-btn--sm'
+          %}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.show_upsells -%}
+        <div class="jn-cart-upsells">
+          <h3 class="jn-cart-upsells__title">{{ section.settings.upsell_heading | default: settings.upsell_heading }}</h3>
+          {%- assign upsell_1 = section.settings.upsell_product_1 | default: settings.upsell_product_1 -%}
+          {%- assign upsell_2 = section.settings.upsell_product_2 | default: settings.upsell_product_2 -%}
+          <div class="jn-cart-upsells__track">
+          {%- if upsell_1 != blank -%}
+            <div class="jn-cart-upsell">
+              <div class="jn-cart-upsell__media">
+                {%- if upsell_1.featured_media -%}
+                  {{ upsell_1.featured_media | image_url: width: 120 | image_tag: loading: 'lazy', alt: upsell_1.title | escape }}
+                {%- else -%}
+                  <div class="jn-media__placeholder"><span></span></div>
+                {%- endif -%}
+              </div>
+              <div>
+                <p class="jn-cart-upsell__name">{{ upsell_1.title }}</p>
+                <p class="jn-cart-upsell__price">{{ upsell_1.price | money }}</p>
+              </div>
+              <button class="jn-btn jn-btn--secondary jn-btn--sm" type="button" data-jn-upsell-add data-variant-id="{{ upsell_1.selected_or_first_available_variant.id }}">
+                Add
+              </button>
+            </div>
+          {%- else -%}
+            <div class="jn-cart-upsell">
+              <div class="jn-cart-upsell__media"><div class="jn-media__placeholder"><span></span></div></div>
+              <div>
+                <p class="jn-cart-upsell__name">{{ section.settings.demo_upsell_1_title }}</p>
+                <p class="jn-cart-upsell__price">{{ section.settings.demo_upsell_1_price }}</p>
+              </div>
+              <button class="jn-btn jn-btn--secondary jn-btn--sm" type="button" data-jn-upsell-add>Add</button>
+            </div>
+          {%- endif -%}
+
+          {%- if upsell_2 != blank -%}
+            <div class="jn-cart-upsell">
+              <div class="jn-cart-upsell__media">
+                {%- if upsell_2.featured_media -%}
+                  {{ upsell_2.featured_media | image_url: width: 120 | image_tag: loading: 'lazy', alt: upsell_2.title | escape }}
+                {%- else -%}
+                  <div class="jn-media__placeholder"><span></span></div>
+                {%- endif -%}
+              </div>
+              <div>
+                <p class="jn-cart-upsell__name">{{ upsell_2.title }}</p>
+                <p class="jn-cart-upsell__price">{{ upsell_2.price | money }}</p>
+              </div>
+              <button class="jn-btn jn-btn--secondary jn-btn--sm" type="button" data-jn-upsell-add data-variant-id="{{ upsell_2.selected_or_first_available_variant.id }}">
+                Add
+              </button>
+            </div>
+          {%- else -%}
+            <div class="jn-cart-upsell">
+              <div class="jn-cart-upsell__media"><div class="jn-media__placeholder"><span></span></div></div>
+              <div>
+                <p class="jn-cart-upsell__name">{{ section.settings.demo_upsell_2_title }}</p>
+                <p class="jn-cart-upsell__price">{{ section.settings.demo_upsell_2_price }}</p>
+              </div>
+              <button class="jn-btn jn-btn--secondary jn-btn--sm" type="button" data-jn-upsell-add>Add</button>
+            </div>
+          {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="jn-cart-info">
+        {%- if section.settings.show_shipping_info -%}
+          <div class="jn-cart-info__row">
+            {% render 'icon', name: 'truck' %}
+            <span>{{ section.settings.shipping_info | default: settings.shipping_info_text }}</span>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.show_guarantee -%}
+          <div class="jn-cart-info__row">
+            {% render 'icon', name: 'shield' %}
+            <span>{{ section.settings.guarantee_text | default: settings.guarantee_text }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="jn-cart-drawer__footer jn-cart-drawer__sticky-checkout">
+      <div class="jn-cart-drawer__subtotal">
+        <span>{{ 'sections.cart.subtotal' | t }}</span>
+        <strong data-jn-cart-subtotal>
+          {%- if cart.item_count > 0 -%}
+            {{ cart.total_price | money }}
+          {%- else -%}
+            {{ section.settings.demo_subtotal }}
+          {%- endif -%}
+        </strong>
+      </div>
+      <p class="jn-cart-drawer__note">{{ 'sections.cart.taxes_note' | t }}</p>
+      <a class="jn-btn jn-btn--accent jn-btn--block" href="{{ routes.cart_url }}">
+        {{ section.settings.checkout_label | default: settings.checkout_button_label }}
+      </a>
+      <div class="jn-cart-drawer__trust">
+        <span>
+          {% render 'icon', name: 'truck' %}
+          Hassle-free shipping
+        </span>
+        <span>
+          {% render 'icon', name: 'shield' %}
+          Easy returns
+        </span>
+      </div>
+    </div>
+  </aside>
+</jn-cart-drawer>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your bag"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_progress",
+      "label": "Show free-shipping progress",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_routine",
+      "label": "Show hair routine recommendation",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "routine_eyebrow",
+      "label": "Routine eyebrow",
+      "default": "Hair routine"
+    },
+    {
+      "type": "text",
+      "id": "routine_title",
+      "label": "Routine title",
+      "default": "Complete your evening ritual"
+    },
+    {
+      "type": "textarea",
+      "id": "routine_text",
+      "label": "Routine text",
+      "default": "Based on what’s in your bag, pair with a lightweight leave-in for softer mornings."
+    },
+    {
+      "type": "text",
+      "id": "routine_cta",
+      "label": "Routine CTA",
+      "default": "See the routine"
+    },
+    {
+      "type": "url",
+      "id": "routine_link",
+      "label": "Routine link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_upsells",
+      "label": "Show dynamic upsells",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "upsell_heading",
+      "label": "Upsell heading",
+      "default": "Often paired with"
+    },
+    {
+      "type": "product",
+      "id": "upsell_product_1",
+      "label": "Upsell product 1"
+    },
+    {
+      "type": "product",
+      "id": "upsell_product_2",
+      "label": "Upsell product 2"
+    },
+    {
+      "type": "text",
+      "id": "demo_upsell_1_title",
+      "label": "Placeholder upsell 1 title",
+      "default": "Scalp Serum"
+    },
+    {
+      "type": "text",
+      "id": "demo_upsell_1_price",
+      "label": "Placeholder upsell 1 price",
+      "default": "₹899"
+    },
+    {
+      "type": "text",
+      "id": "demo_upsell_2_title",
+      "label": "Placeholder upsell 2 title",
+      "default": "Silk Scrunchie Set"
+    },
+    {
+      "type": "text",
+      "id": "demo_upsell_2_price",
+      "label": "Placeholder upsell 2 price",
+      "default": "₹499"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_info",
+      "label": "Show shipping information",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "shipping_info",
+      "label": "Shipping information",
+      "default": "Dispatched in 2–4 business days. Free shipping above threshold."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_guarantee",
+      "label": "Show money-back guarantee",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "30-day money-back guarantee on unopened products."
+    },
+    {
+      "type": "text",
+      "id": "checkout_label",
+      "label": "Checkout button",
+      "default": "Checkout"
+    },
+    {
+      "type": "text",
+      "id": "demo_subtotal",
+      "label": "Placeholder subtotal",
+      "default": "₹1,499.00"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "demo_line",
+      "name": "Placeholder line item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Nourish Shampoo"
+        },
+        {
+          "type": "text",
+          "id": "variant",
+          "label": "Variant",
+          "default": "250 ml"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "₹1,499"
+        },
+        {
+          "type": "number",
+          "id": "quantity",
+          "label": "Quantity",
+          "default": 1
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "demo_line",
+        "settings": {
+          "title": "Nourish Shampoo",
+          "variant": "250 ml",
+          "price": "₹1,499",
+          "quantity": 1
+        }
+      }
+    ]
+  }
+}
+{% endschema %}
