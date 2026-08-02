@@ -62,4 +62,21 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false">
       <path d="M12 6v12M6 12h12"/>
     </svg>
+  {%- when 'droplet' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M12 3.5S6.5 10 6.5 14.2a5.5 5.5 0 0 0 11 0C17.5 10 12 3.5 12 3.5z"/>
+    </svg>
+  {%- when 'clock' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="12" r="8"/>
+      <path d="M12 8v4.5l3 1.5"/>
+    </svg>
+  {%- when 'spark' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M12 3l1.4 6.1L19.5 12l-6.1 2.9L12 21l-1.4-6.1L4.5 12l6.1-2.9L12 3z"/>
+    </svg>
+  {%- when 'moon' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M18.5 14.5A7 7 0 0 1 9.5 5.5 7.2 7.2 0 1 0 18.5 14.5z"/>
+    </svg>
 {%- endcase -%}

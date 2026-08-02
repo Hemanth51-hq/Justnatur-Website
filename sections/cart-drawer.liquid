@@ -150,7 +150,7 @@
           <h3 class="jn-cart-upsells__title">{{ section.settings.upsell_heading | default: settings.upsell_heading }}</h3>
           {%- assign upsell_1 = section.settings.upsell_product_1 | default: settings.upsell_product_1 -%}
           {%- assign upsell_2 = section.settings.upsell_product_2 | default: settings.upsell_product_2 -%}
-
+          <div class="jn-cart-upsells__track">
           {%- if upsell_1 != blank -%}
             <div class="jn-cart-upsell">
               <div class="jn-cart-upsell__media">
@@ -206,6 +206,7 @@
               <button class="jn-btn jn-btn--secondary jn-btn--sm" type="button" data-jn-upsell-add>Add</button>
             </div>
           {%- endif -%}
+          </div>
         </div>
       {%- endif -%}
 
@@ -240,6 +241,16 @@
       <a class="jn-btn jn-btn--accent jn-btn--block" href="{{ routes.cart_url }}">
         {{ section.settings.checkout_label | default: settings.checkout_button_label }}
       </a>
+      <div class="jn-cart-drawer__trust">
+        <span>
+          {% render 'icon', name: 'truck' %}
+          Hassle-free shipping
+        </span>
+        <span>
+          {% render 'icon', name: 'shield' %}
+          Easy returns
+        </span>
+      </div>
     </div>
   </aside>
 </jn-cart-drawer>

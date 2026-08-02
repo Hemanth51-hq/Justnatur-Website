@@ -76,4 +76,30 @@
     event.preventDefault();
     document.dispatchEvent(new CustomEvent('jn:cart:open'));
   });
+
+  /* Sticky ATC — show after buy box scrolls out of view */
+  const stickyAtc = document.querySelector('[data-jn-sticky-atc]');
+  if (stickyAtc && 'IntersectionObserver' in window) {
+    const selector = stickyAtc.getAttribute('data-observe') || '.section-product-main';
+    const targets = selector
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .flatMap((s) => Array.from(document.querySelectorAll(s)));
+
+    if (targets.length) {
+      const sync = (entry) => {
+        const visible = entry.isIntersecting;
+        stickyAtc.classList.toggle('is-visible', !visible);
+        stickyAtc.setAttribute('aria-hidden', String(visible));
+      };
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(sync);
+        },
+        { rootMargin: '-12% 0px 0px 0px', threshold: 0 }
+      );
+      targets.forEach((el) => io.observe(el));
+    }
+  }
 })();

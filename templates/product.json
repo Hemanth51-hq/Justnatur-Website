@@ -10,6 +10,47 @@
         "show_guarantee": true
       }
     },
+    "trust": {
+      "type": "trust-strip",
+      "settings": {
+        "surface": "mint"
+      },
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "droplet",
+            "title": "Gentle cleanse",
+            "text": "Supports comfortable everyday wash days"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "clock",
+            "title": "Daily rhythm",
+            "text": "A short ritual that fits busy mornings"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "title": "Scalp comfort",
+            "text": "Botanicals chosen for a calmer feel"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "icon": "spark",
+            "title": "Lasting softness",
+            "text": "Helps hair return to its natural ease"
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"]
+    },
     "editorial": {
       "type": "editorial-split",
       "settings": {
@@ -53,7 +94,16 @@
         "r3": { "type": "review", "settings": { "text": "The scent is quiet and clean.", "author": "Customer" } }
       },
       "block_order": ["r1", "r2", "r3"]
+    },
+    "sticky_atc": {
+      "type": "sticky-atc",
+      "settings": {
+        "placeholder_title": "Nourish Shampoo",
+        "placeholder_price": "₹1,499",
+        "button_label": "Add to bag",
+        "observe_selector": ".section-product-main"
+      }
     }
   },
-  "order": ["main", "editorial", "routine", "reviews"]
+  "order": ["main", "trust", "editorial", "routine", "reviews", "sticky_atc"]
 }

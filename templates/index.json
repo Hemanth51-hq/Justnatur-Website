@@ -218,29 +218,37 @@
         "t1": {
           "type": "item",
           "settings": {
-            "icon": "leaf",
-            "title": "Thoughtful ingredients",
-            "text": "Botanical formulas without unnecessary noise."
+            "icon": "droplet",
+            "title": "Gentle cleanse",
+            "text": "Supports comfortable everyday wash days"
           }
         },
         "t2": {
           "type": "item",
           "settings": {
-            "icon": "truck",
-            "title": "Careful shipping",
-            "text": "Dispatched in 2–4 business days across India."
+            "icon": "clock",
+            "title": "Daily rhythm",
+            "text": "A short ritual that fits busy mornings"
           }
         },
         "t3": {
           "type": "item",
           "settings": {
-            "icon": "shield",
-            "title": "Money-back calm",
-            "text": "30-day guarantee on unopened products."
+            "icon": "leaf",
+            "title": "Scalp comfort",
+            "text": "Botanicals chosen for a calmer feel"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "icon": "spark",
+            "title": "Lasting softness",
+            "text": "Helps hair return to its natural ease"
           }
         }
       },
-      "block_order": ["t1", "t2", "t3"]
+      "block_order": ["t1", "t2", "t3", "t4"]
     },
     "newsletter": {
       "type": "newsletter-cta",

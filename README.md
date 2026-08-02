@@ -32,15 +32,21 @@ Supporting tones for overlays, stars, footer accents, and sage gradient washes a
 
 Intentionally redesigned at each viewport — not a shrunk desktop layout:
 
-| Breakpoint | Width |
-|---|---|
-| Small mobile | ≤ 389px |
-| Large mobile | 390–767px |
-| Tablet portrait | 768–1023px |
-| Tablet landscape | 1024–1199px |
-| Laptop | 1200–1439px |
-| Desktop | 1440–1679px |
-| Large desktop | ≥ 1680px |
+| Breakpoint | Width | Layout notes |
+|---|---|---|
+| Small mobile | ≤ 389px | 1-col products, stacked CTAs, full-width cart drawer |
+| Large mobile | 390–767px | 1–2 col grids, swipeable cart upsells, sticky ATC |
+| Tablet portrait | 768–1023px | 2×2 benefits/trust, 2-col shop, hamburger nav |
+| Tablet landscape | 1024–1199px | Desktop nav, 3-col shop, side-by-side splits |
+| Laptop | 1200–1439px | 4-col featured, wider cart panel |
+| Desktop | 1440–1679px | Full editorial rhythm |
+| Large desktop | ≥ 1680px | Expanded content max widths |
+
+Mobile/tablet specifics:
+- Cart drawer is **full-bleed on phones** with a sticky checkout footer + safe-area padding
+- Trust/benefits strip: **1 → 2×2 → equal columns** with soft dividers
+- Product grids stay single-column under ~480px so titles and Add buttons remain tappable
+- Sticky add-to-cart appears on product pages after the buy box scrolls away
 
 ## Theme Editor
 

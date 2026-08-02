@@ -127,6 +127,17 @@
   align-items: center;
 }
 
+@media (max-width: 479px) {
+  .jn-btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .jn-btn-group .jn-btn {
+    width: 100%;
+  }
+}
+
 /* —— Product card —— */
 .jn-product-card {
   display: flex;
@@ -202,6 +213,32 @@
   margin-top: var(--jn-space-3);
 }
 
+.jn-product-card__actions .jn-btn {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .jn-product-card__title {
+    font-size: var(--jn-text-md);
+  }
+
+  .jn-product-card__actions .jn-btn--sm,
+  .jn-product-card__actions .jn-btn {
+    min-height: 2.85rem;
+    font-size: var(--jn-text-sm);
+  }
+}
+
+@media (min-width: 390px) and (max-width: 767px) {
+  .jn-product-card__media {
+    aspect-ratio: 1;
+  }
+
+  .jn-product-card__body {
+    gap: var(--jn-space-1);
+  }
+}
+
 /* —— Quantity —— */
 .jn-qty {
   display: inline-flex;
@@ -215,13 +252,14 @@
 .jn-qty__btn {
   display: grid;
   place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border: 0;
   background: transparent;
   cursor: pointer;
   color: var(--jn-color-primary);
   transition: background var(--jn-duration-fast) var(--jn-ease);
+  touch-action: manipulation;
 }
 
 .jn-qty__btn:hover {
@@ -230,7 +268,7 @@
 
 .jn-qty__input {
   width: 2.25rem;
-  height: 2.5rem;
+  height: 2.75rem;
   border: 0;
   text-align: center;
   background: transparent;
@@ -389,13 +427,25 @@
 }
 
 .jn-carousel__slide {
-  flex: 0 0 85%;
+  flex: 0 0 min(85%, 20rem);
   scroll-snap-align: start;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 390px) and (max-width: 767px) {
   .jn-carousel__slide {
-    flex-basis: 45%;
+    flex-basis: min(72%, 18rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .jn-carousel__slide {
+    flex-basis: calc((100% - var(--jn-space-6)) / 2);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .jn-carousel__slide {
+    flex-basis: calc((100% - var(--jn-space-6) * 2) / 3);
   }
 }
 
@@ -521,35 +571,179 @@
   height: 1.35rem;
 }
 
-/* —— Trust strip —— */
+/* —— Trust / benefits strip ——
+   Mobile: stacked 1-col
+   Tablet: 2×2 with soft dividers
+   Desktop: equal columns with vertical rules
+*/
 .jn-trust-strip {
   display: grid;
-  gap: var(--jn-space-6);
+  grid-template-columns: 1fr;
+  gap: 0;
   text-align: center;
 }
 
-@media (min-width: 768px) {
+.jn-trust-item {
+  padding: var(--jn-space-6) var(--jn-space-2);
+  border-bottom: 1px solid var(--jn-color-border);
+}
+
+.jn-trust-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.jn-trust-item:first-child {
+  padding-top: 0;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
   .jn-trust-strip {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--jn-space-8);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jn-trust-item {
+    padding: var(--jn-space-8) var(--jn-space-6);
+    border-bottom: 1px solid var(--jn-color-border);
+  }
+
+  .jn-trust-item:nth-child(odd) {
+    border-right: 1px solid var(--jn-color-border);
+  }
+
+  .jn-trust-item:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .jn-trust-item:first-child,
+  .jn-trust-item:nth-child(2) {
+    padding-top: var(--jn-space-4);
+  }
+
+  .jn-trust-item:last-child,
+  .jn-trust-item:nth-last-child(2) {
+    padding-bottom: var(--jn-space-4);
+  }
+}
+
+@media (min-width: 1024px) {
+  .jn-trust-strip {
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    align-items: start;
+  }
+
+  .jn-trust-item {
+    padding: var(--jn-space-4) var(--jn-space-8);
+    border-bottom: 0;
+    border-right: 1px solid var(--jn-color-border);
+  }
+
+  .jn-trust-item:first-child {
+    padding-top: var(--jn-space-4);
+  }
+
+  .jn-trust-item:last-child {
+    border-right: 0;
+    padding-bottom: var(--jn-space-4);
   }
 }
 
 .jn-trust-item__icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin: 0 auto var(--jn-space-3);
-  color: var(--jn-color-accent);
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0 auto var(--jn-space-4);
+  color: var(--jn-color-primary);
+}
+
+.jn-trust-item__icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .jn-trust-item__title {
-  font-family: var(--jn-font-display);
-  font-size: var(--jn-text-lg);
+  font-family: var(--jn-font-body);
+  font-size: var(--jn-text-xs);
+  font-weight: var(--jn-weight-semibold);
+  letter-spacing: var(--jn-tracking-wide);
+  text-transform: uppercase;
   margin: 0 0 var(--jn-space-2);
+  color: var(--jn-color-primary);
 }
 
 .jn-trust-item__text {
   font-size: var(--jn-text-sm);
   color: var(--jn-color-text-muted);
   margin: 0;
+  line-height: var(--jn-leading-relaxed);
+  max-width: 16rem;
+  margin-inline: auto;
+}
+
+/* Sticky add-to-cart bar (product pages) */
+.jn-sticky-atc {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: calc(var(--jn-z-header) - 1);
+  display: none;
+  padding: var(--jn-space-3) var(--jn-gutter);
+  padding-bottom: calc(var(--jn-space-3) + env(safe-area-inset-bottom, 0px));
+  background: color-mix(in srgb, var(--jn-color-surface) 94%, transparent);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--jn-color-border);
+  box-shadow: 0 -8px 28px rgba(26, 28, 25, 0.08);
+}
+
+.jn-sticky-atc.is-visible {
+  display: block;
+}
+
+.jn-sticky-atc__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--jn-space-4);
+  max-width: var(--jn-content-max);
+  margin-inline: auto;
+}
+
+.jn-sticky-atc__meta {
+  min-width: 0;
+}
+
+.jn-sticky-atc__title {
+  font-family: var(--jn-font-display);
+  font-size: var(--jn-text-sm);
+  font-weight: var(--jn-weight-medium);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.jn-sticky-atc__price {
+  font-size: var(--jn-text-xs);
+  color: var(--jn-color-text-muted);
+  margin: 0;
+}
+
+.jn-sticky-atc__inner .jn-btn {
+  flex-shrink: 0;
+  min-width: 8.5rem;
+}
+
+@media (min-width: 768px) {
+  .jn-sticky-atc__title {
+    font-size: var(--jn-text-md);
+  }
+
+  .jn-sticky-atc__inner .jn-btn {
+    min-width: 11rem;
+  }
+}
+
+body.jn-drawer-open .jn-sticky-atc,
+body.jn-nav-open .jn-sticky-atc {
+  visibility: hidden;
 }

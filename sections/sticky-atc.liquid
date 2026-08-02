@@ -1,0 +1,81 @@
+{%- liquid
+  assign sticky_title = product.title | default: section.settings.placeholder_title
+  assign sticky_price = section.settings.placeholder_price
+  if product != blank
+    assign sticky_price = product.price | money
+  endif
+-%}
+
+<div
+  class="jn-sticky-atc"
+  data-jn-sticky-atc
+  data-observe="{{ section.settings.observe_selector | default: '.section-product-main' }}"
+  aria-hidden="true"
+>
+  <div class="jn-sticky-atc__inner">
+    <div class="jn-sticky-atc__meta">
+      <p class="jn-sticky-atc__title">{{ sticky_title }}</p>
+      <p class="jn-sticky-atc__price">{{ sticky_price }}</p>
+    </div>
+    {%- if product != blank -%}
+      {% form 'product', product, id: 'JnStickyAtcForm' %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <button
+          class="jn-btn jn-btn--primary"
+          type="submit"
+          name="add"
+          {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
+        >
+          {%- if product.selected_or_first_available_variant.available -%}
+            {{ section.settings.button_label | default: 'Add to bag' }}
+          {%- else -%}
+            {{ 'products.product.sold_out' | t }}
+          {%- endif -%}
+        </button>
+      {% endform %}
+    {%- else -%}
+      <button class="jn-btn jn-btn--primary" type="button" data-jn-cart-open>
+        {{ section.settings.button_label | default: 'Add to bag' }}
+      </button>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sticky add to cart",
+  "tag": "section",
+  "class": "section-sticky-atc",
+  "settings": [
+    {
+      "type": "text",
+      "id": "placeholder_title",
+      "label": "Placeholder title",
+      "default": "Nourish Shampoo"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_price",
+      "label": "Placeholder price",
+      "default": "₹1,499"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Add to bag"
+    },
+    {
+      "type": "text",
+      "id": "observe_selector",
+      "label": "Hide while this selector is in view",
+      "default": ".section-product-main"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky add to cart"
+    }
+  ]
+}
+{% endschema %}
